@@ -184,3 +184,10 @@ print("Lista concatenada (crea nueva lista):", lista_concatenada)
 # Más eficiente: modifica mi_lista directamente (como extend)
 mi_lista += otra_lista
 print("mi_lista después de concatenar otra_lista:", mi_lista)
+
+#=========================================================
+#Largo de una lista
+#=========================================================
+#La función len() devuelve el número de elementos en una lista.
+
+print("Largo de mi_lista:", len(mi_lista))
