@@ -97,4 +97,77 @@ def find_first_sum(nums, goal):
 nums = [4, 5, 6, 2]
 goal = 8
 
-print(find_first_sum(nums=nums, goal=goal))
+# ==========================================================
+# EJERCICIO: ENCONTRAR DOS NÚMEROS QUE SUMEN UN OBJETIVO
+# (SOLUCIÓN OPTIMIZADA CON DICCIONARIO)
+# ==========================================================
+# Esta versión utiliza un diccionario para reducir
+# la complejidad del algoritmo.
+#
+# En lugar de comparar todos con todos (O(n²)),
+# recorremos la lista una sola vez (O(n)).
+# ==========================================================
+
+def find_first_sum_dict(nums, goal):
+    """
+    Encuentra los índices del PRIMER par de números cuya
+    suma sea igual al valor objetivo (goal), usando
+    un diccionario para optimizar la búsqueda.
+
+    Parameters
+    ----------
+    nums : list[int]
+        Lista de números enteros.
+    goal : int
+        Valor objetivo que deben sumar dos elementos.
+
+    Returns
+    -------
+    list[int] | None
+        - [indice_1, indice_2] si se encuentra una combinación válida
+        - None si no existe ninguna combinación
+    """
+
+    # ------------------------------------------------------
+    # Diccionario auxiliar
+    # ------------------------------------------------------
+    # Guarda:
+    #   clave   -> número ya visto
+    #   valor   -> índice donde apareció
+    #
+    # Ejemplo:
+    # seen = {4: 0, 5: 1}
+    seen = {}
+
+    # ------------------------------------------------------
+    # Recorremos la lista UNA sola vez
+    # ------------------------------------------------------
+    for index, value in enumerate(nums):
+
+        # Calculamos el complemento necesario
+        # para llegar al objetivo
+        complement = goal - value
+
+        # ----------------------------------------------
+        # ¿El complemento ya fue visto?
+        # ----------------------------------------------
+        if complement in seen:
+            # Si existe, encontramos la suma
+            # Devolvemos los índices
+            return [seen[complement], index]
+
+        # Si no existe, guardamos el número actual
+        # junto con su índice
+        seen[value] = index
+
+    # Si termina el bucle sin encontrar combinación
+    return None
+
+
+# ==========================================================
+# PRUEBA DE LA FUNCIÓN
+# ==========================================================
+numeros = [4, 5, 6, 2, 8, 3, 5, 7, 1]
+objetivo = 8
+
+print(find_first_sum_dict(numeros, objetivo))
