@@ -4,96 +4,178 @@
 import os
 os.system('clear')  # En Windows suele usarse 'cls'
 
+
 # ==========================================================
-# DICCIONARIOS EN PYTHON
+# DICCIONARIOS EN PYTHON (dict)
 # ==========================================================
-# Los diccionarios son estructuras de datos
-# que permiten almacenar datos en pares clave-valor.
+# Un diccionario es una estructura de datos que almacena
+# información en pares:
 #
-# Los diccionarios se definen con:
-#   diccionario = {clave1: valor1, clave2: valor2, ...}
+#   clave -> valor
+#
+# Características:
+# - Las claves son ÚNICAS
+# - Los valores pueden repetirse
+# - Son mutables (se pueden modificar)
+# - Permiten estructuras anidadas
+#
+# Sintaxis:
+# diccionario = {clave1: valor1, clave2: valor2, ...}
 # ==========================================================
 
+
+# ----------------------------------------------------------
+# CREAR UN DICCIONARIO
+# ----------------------------------------------------------
 persona = {
     "nombre": "Victor",
     "apellido": "García",
     "edad": 23,
     "es_estudiante": True,
     "cursos": ["Python", "Java"],
-    "calificaciones":[6,7,9,8],
-    "social":{
+    "calificaciones": [6, 7, 9, 8],
+    "social": {
         "facebook": "@victorgarcia",
         "twitter": "@victorgarcia",
         "instagram": "@victorgarcia"
-        
     }
 }
 
-#Para acceder a los valores
+
+# ==========================================================
+# ACCEDER A LOS VALORES
+# ==========================================================
+# Se accede a los valores usando la clave
+# diccionario["clave"]
+
 print(persona["nombre"])
 print(persona["apellido"])
 print(persona["edad"])
 print(persona["es_estudiante"])
 print(persona["cursos"])
-print(persona["calificaciones"][1])
-print(persona["social"]["facebook"])
+print(persona["calificaciones"][1])      # Acceso a lista dentro del diccionario
+print(persona["social"]["facebook"])      # Acceso a diccionario anidado
 print(persona["social"]["twitter"])
 print(persona["social"]["instagram"])
+
+print("\nDiccionario completo:")
 print(persona)
 
-#Cambiar valores
+
+# ==========================================================
+# MODIFICAR VALORES
+# ==========================================================
+# Si la clave existe, se reemplaza el valor
 persona["nombre"] = "Carlos"
 persona["apellido"] = "García"
 persona["edad"] = 24
 
-print("\nCambiamos los valores")
+print("\nCambiamos los valores:")
 print(persona["nombre"])
 print(persona["apellido"])
 print(persona["edad"])
 print(persona)
 
-#Eliminar elementos
+
+# ==========================================================
+# ELIMINAR ELEMENTOS
+# ==========================================================
+
+# ----------------------------------------------------------
+# USANDO del
+# ----------------------------------------------------------
+# del elimina el par clave-valor
+# NO devuelve el valor eliminado
 del persona["edad"]
-print("\nEliminamos la edad")
+
+print("\nEliminamos la edad con del:")
 print(persona)
 
-#Usamos pop para eliminar 
-#La diferncia entre pop y del es que pop devuelve el valor
-#del elemento eliminado
-#Ser mas explicativo  en este punto 
-persona.pop("apellido")
-print("\nEliminamos el apellido")
+
+# ----------------------------------------------------------
+# USANDO pop()
+# ----------------------------------------------------------
+# pop(clave):
+# - Elimina el par clave-valor
+# - DEVUELVE el valor eliminado
+#
+# Diferencia clave entre del y pop:
+# - del: solo elimina
+# - pop: elimina y devuelve el valor
+
+apellido_eliminado = persona.pop("apellido")
+
+print("\nEliminamos el apellido con pop():")
+print("Valor eliminado:", apellido_eliminado)
 print(persona)
 
-#Sobrescribir un diccionario
+
+# ==========================================================
+# SOBRESCRIBIR / UNIR DICCIONARIOS CON update()
+# ==========================================================
 a = {"nombre": "Victor", "apellido": "García"}
 b = {"nombre": "Carlos", "apellido": "García", "edad": 24}
 
+print("\nDiccionarios originales:")
+print("a:", a)
+print("b:", b)
 
-print("\nDiccionarios originales a y b")
-print(a)
-print(b)
+
+# ----------------------------------------------------------
+# update()
+# ----------------------------------------------------------
+# update() copia los pares clave-valor del diccionario
+# pasado como argumento dentro del diccionario original.
+#
+# FUNCIONAMIENTO:
+# - Si la clave existe → se actualiza el valor
+# - Si la clave NO existe → se agrega
+#
+# IMPORTANTE:
+# a.update(b) modifica SOLAMENTE a
+# b queda intacto
 
 a.update(b)
-print("\nSobreescribimos el diccionario")
-print(a)
- #Como funciona update  se funciona  de  derecha a izquierda
- # si una clave  existe le cambia  el valor si la clave :valor no existe la agrega
- 
- #Ver si una clave existe
 
-print("\nVer si una clave existe")
+print("\nDespués de a.update(b):")
+print("a:", a)
+
+
+# ==========================================================
+# VERIFICAR SI UNA CLAVE EXISTE
+# ==========================================================
+# Se usa el operador in (verifica SOLO claves)
+
+print("\nVer si una clave existe en persona:")
 print("nombre" in persona)
 print("apellido" in persona)
 print("edad" in persona)
 
-#Optener todas las claves y valores
-print("\nOptener todas las claves")
+
+# ==========================================================
+# MÉTODOS IMPORTANTES DE DICCIONARIOS
+# ==========================================================
+
+# ----------------------------------------------------------
+# keys()
+# ----------------------------------------------------------
+# Devuelve un objeto con todas las claves
+print("\nObtener todas las claves:")
 print(persona.keys())
 
-print("\nOptener todos los valores")
+
+# ----------------------------------------------------------
+# values()
+# ----------------------------------------------------------
+# Devuelve un objeto con todos los valores
+print("\nObtener todos los valores:")
 print(persona.values())
 
-#Para optener todos los pares clave-valor
-print("\nOptener todos los pares clave-valor")
+
+# ----------------------------------------------------------
+# items()
+# ----------------------------------------------------------
+# Devuelve pares (clave, valor)
+# Muy usado para recorrer diccionarios con for
+print("\nObtener todos los pares clave-valor:")
 print(persona.items())
