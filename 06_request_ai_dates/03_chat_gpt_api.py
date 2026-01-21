@@ -10,55 +10,53 @@ from dotenv import load_dotenv
 # Cargamos las variables definidas en el archivo .env
 load_dotenv()
 
-# Obtenemos la API Key desde las variables de entorno
+# API Keys obtenidas desde variables de entorno
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+DEEPSEEK_API_KEY = os.getenv("DEEPSEEK_API_KEY")
 
 # ----------------------------------------------------------
 # LIMPIAR LA CONSOLA (OPCIONAL)
 # ----------------------------------------------------------
 # Intentamos limpiar la consola según el sistema operativo:
-# - "clear" funciona en Linux y macOS
-# - "cls" funciona en Windows
-# Si el primer comando falla, usamos el segundo
+# - "clear" → Linux / macOS
+# - "cls"   → Windows
 if system("clear") != 0:
     system("cls")
 
-# ----------------------------------------------------------
-# FUNCIÓN PARA LLAMAR A LA API DE OPENAI (RESPONSES API)
-# ----------------------------------------------------------
-def call_openai_api(OPENAI_API_KEY, prompt):
+# ==========================================================
+# OPENAI - RESPONSES API (MODELO MODERNO)
+# ==========================================================
+def call_openai_api(api_key, prompt):
     """
     Realiza una petición POST a la API de OpenAI usando el endpoint
-    moderno /v1/responses para generar una respuesta de texto.
+    moderno /v1/responses.
+
+    Este endpoint reemplaza a:
+    - /v1/chat/completions
+    - /v1/completions
 
     Parámetros:
     ----------
-    OPENAI_API_KEY : str
-        Clave de autenticación de OpenAI obtenida desde variables
-        de entorno (.env).
+    api_key : str
+        Clave de autenticación de OpenAI.
 
     prompt : str
-        Texto de entrada enviado al modelo (lo que el usuario quiere
-        que el modelo responda).
+        Texto que se envía al modelo.
 
     Retorna:
     -------
     dict
-        Respuesta completa de la API en formato JSON convertida
-        a un diccionario de Python.
+        Respuesta completa de la API en formato JSON.
     """
 
-    # URL base del endpoint Responses
-    URL_BASE = "https://api.openai.com/v1/responses"
+    url = "https://api.openai.com/v1/responses"
 
-    # Headers HTTP requeridos por la API
     headers = {
         "Content-Type": "application/json",
-        "Authorization": f"Bearer {OPENAI_API_KEY}"
+        "Authorization": f"Bearer {api_key}"
     }
 
-    # Cuerpo de la petición
-    # Usamos "input" en lugar de "messages" (API moderna)
+    # En Responses API se usa "input", NO "messages"
     data = {
         "model": "gpt-4.1-mini",
         "input": [
@@ -69,26 +67,82 @@ def call_openai_api(OPENAI_API_KEY, prompt):
         ]
     }
 
-    # Enviamos la petición POST
-    response = requests.post(URL_BASE, json=data, headers=headers)
-
-    # Convertimos la respuesta a JSON y la retornamos
+    response = requests.post(url, headers=headers, json=data)
     return response.json()
 
 
-# ----------------------------------------------------------
-# LLAMADA A LA FUNCIÓN
-# ----------------------------------------------------------
-# Enviamos un prompt al modelo
-api_response = call_openai_api(
+# ==========================================================
+# DEEPSEEK - CHAT COMPLETIONS (OPENAI COMPATIBLE)
+# ==========================================================
+def call_DeepSeek_api_corrected(api_key, prompt):
+    """
+    Realiza una petición POST a la API de DeepSeek usando el endpoint
+    compatible con OpenAI: /v1/chat/completions.
+
+    IMPORTANTE:
+    - DeepSeek NO usa Responses API
+    - Usa Chat Completions (formato clásico)
+
+    Parámetros:
+    ----------
+    api_key : str
+        Clave de autenticación de DeepSeek.
+
+    prompt : str
+        Texto enviado al modelo.
+
+    Retorna:
+    -------
+    str | dict
+        - Texto generado por el modelo si la petición es exitosa
+        - JSON con error si la petición falla
+    """
+
+    url = "https://api.deepseek.com/v1/chat/completions"
+
+    headers = {
+        "Content-Type": "application/json",
+        "Authorization": f"Bearer {api_key}"
+    }
+
+    # En Chat Completions se usa "messages"
+    data = {
+        "model": "deepseek-chat",  # Alternativa: "deepseek-reasoner"
+        "messages": [
+            {"role": "user", "content": prompt}
+        ],
+        "stream": False
+    }
+
+    response = requests.post(url, headers=headers, json=data)
+
+    if response.status_code == 200:
+        result = response.json()
+        # En chat completions, el texto está en choices
+        return result["choices"][0]["message"]["content"]
+    else:
+        # Devuelve el error completo para debugging
+        return response.json()
+
+
+# ==========================================================
+# PRUEBAS
+# ==========================================================
+# --- DeepSeek ---
+# try:
+#     respuesta_deepseek = call_DeepSeek_api_corrected(
+#         DEEPSEEK_API_KEY,
+#         "Escribe un breve poema sobre la programacion en Python"
+#     )
+#     print("Respuesta DeepSeek:\n")
+#     print(respuesta_deepseek)
+# except Exception as e:
+#     print(f"Error DeepSeek: {e}")
+
+# --- OpenAI (descomentar si querés probarlo) ---
+api_response_openai = call_openai_api(
     OPENAI_API_KEY,
     "Escribe un breve poema sobre la programacion en Python"
 )
-
-# ----------------------------------------------------------
-# LECTURA DE LA RESPUESTA
-# ----------------------------------------------------------
-# La Responses API no usa 'choices'
-# El texto generado se encuentra en:
-# output -> content -> text
-print(api_response["output"][0]["content"][0]["text"])
+print("\nRespuesta OpenAI:\n")
+print(api_response_openai["output"][0]["content"][0]["text"])
