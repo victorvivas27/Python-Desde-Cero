@@ -49,7 +49,11 @@ class API_Chat:
                 headers=headers,
                 timeout=30
             )
-
+# ----------------------------------------------------------
+# TRATAMIENTO DE ERRORES
+# Usando raise_for_status(), que es un método del objeto response (requests)
+# y lanza una excepción si la petición HTTP devuelve un error (4xx o 5xx)
+# ----------------------------------------------------------
             response.raise_for_status()
             res_json = response.json()
 
