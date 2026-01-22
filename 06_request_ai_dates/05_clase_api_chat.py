@@ -21,6 +21,14 @@ if not OPENAI_API_KEY:
 # CLASE PARA CONSUMIR LA API DE OPENAI
 # ----------------------------------------------------------
 class API_Chat:
+    # ----------------------------------------------------------
+    # CONSTRUCTOR
+    # Dentro del __init__ se definen los atributos de la clase
+    # Si definimos los atributos de la clase, podemos acceder a ellos
+    # desde cualquier método de la clase
+    # El parámetro model recibe un dato de tipo str y lo indicamos con model: str.
+    # Esto se llama type hints (pistas de tipo).
+    # ----------------------------------------------------------
     def __init__(self, api_key: str, url: str, model: str):
         self.api_key = api_key
         self.url = url
