@@ -145,8 +145,10 @@ print("\n6) \\w (caracteres alfanuméricos y _)")
 print(found)
 
 # Si quisieras "palabras completas" (secuencias), podrías usar:
-# pattern = r"\w+"
-# re.findall(pattern, texto) -> ['variable1', '_var2', '3var', 'var', '4']
+pattern = r"\w+"
+palabras_completas = re.findall(pattern, texto) #-> ['variable1', '_var2', '3var', 'var', '4']
+print("\n6b) \\w+ (palabras completas)")
+print(palabras_completas)
 
 
 # ----------------------------------------------------------

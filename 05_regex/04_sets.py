@@ -30,7 +30,7 @@ if system("clear") != 0:
 # ----------------------------------------------------------
 # 1) VALIDACIÓN DE UN USERNAME
 # ----------------------------------------------------------
-username = "rub.$ius_69+"
+username = "rub.%ius_69+"
 
 # ^  → inicio de la cadena
 # $  → fin de la cadena
