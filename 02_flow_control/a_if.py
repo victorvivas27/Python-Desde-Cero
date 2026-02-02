@@ -1,3 +1,4 @@
+'''Documentacion de sentencias condicionales en Python'''
 # ==========================================================
 # SENTENCIAS CONDICIONALES (if, elif, else)
 # ==========================================================
@@ -42,18 +43,18 @@ else:
 # elif permite evaluar varias condiciones en orden.
 # Python ejecuta SOLO el primer bloque verdadero.
 
-nota = 7
+NOTA = 7
 
 # Operadores lógicos:
 # and → ambas condiciones deben cumplirse
 # or  → se cumple al menos una condición
 # not → invierte el resultado de la condición
 
-if nota >= 9:
+if NOTA >= 9:
     print("Sobresaliente")
-elif nota >= 7:
+elif NOTA >= 7:
     print("Notable")
-elif nota >= 5:
+elif NOTA >= 5:
     print("Aprobado")
 else:
     print("No estás calificado")
@@ -64,10 +65,10 @@ else:
 # ----------------------------------------------------------
 print("Condiciones múltiples con operadores lógicos\n")
 
-edad = 25
-tiene_licencia = True
+EDAD = 25
+TIENE_LICENCIA = True
 
-if edad >= 18 and tiene_licencia:
+if EDAD >= 18 and TIENE_LICENCIA:
     print("Puedes conducir un vehículo 🚘")
 else:
     print("No puedes conducir un vehículo 🚫")
@@ -83,26 +84,26 @@ else:
 # >=  Mayor o igual que
 # <=  Menor o igual que
 
-a = 10
-b = 20
+A = 10
+B = 20
 
-if a < b:
-    print(f"{a} es menor que {b}")
+if A < B:
+    print(f"{A} es menor que {B}")
 
-if a != b:
-    print(f"{a} es diferente de {b}")
+if A != B:
+    print(f"{A} es diferente de {B}")
 
-if a <= b:
-    print(f"{a} es menor o igual que {b}")
+if A <= B:
+    print(f"{A} es menor o igual que {B}")
 
-if a == 10:
-    print(f"{a} es igual a 10")
+if A == 10:
+    print(f"{A} es igual A 10")
 
-if b >= 15:
-    print(f"{b} es mayor o igual que 15")
+if B >= 15:
+    print(f"{B} es mayor o igual que 15")
 
-if b > a:
-    print(f"{b} es mayor que {a}")
+if B > A:
+    print(f"{B} es mayor que {A}")
 
 
 # ----------------------------------------------------------
@@ -131,8 +132,7 @@ else:
 
 print(
     "Comparación de cadenas:",
-    'manzana' == 'manzana'
-    
+    'manzana' == 'manzana'   
 )  # True
 print('manzana' == 'manzana')   # True
 print('manzana' == 'Manzana')   # False (mayúscula ≠ minúscula)
@@ -156,8 +156,8 @@ print('manzana' == 'pera')      # False
 # ----------------------------------------------------------
 # EJEMPLO BÁSICO DE TERNARIA
 # ----------------------------------------------------------
-resultado = "Iguales" if 'hola' == 'hola' else "Diferentes"
-print("Las cadenas son:", resultado)
+RESULTADO = "Iguales" if 'hola' == 'hola' else "Diferentes"
+print("Las cadenas son:", RESULTADO)
 
 
 # ----------------------------------------------------------
@@ -176,10 +176,8 @@ print('Hola' == 'hola')  # False
 # de escribir este bloque:
 
 if 'hola' == 'hola':
-    resultado = "Iguales"
+    RESULTADO = "Iguales"
 else:
-    resultado = "Diferentes"
+    RESULTADO = "Diferentes"
 
-print("Las cadenas son:", resultado)
-
-
+print("Las cadenas son:", RESULTADO)

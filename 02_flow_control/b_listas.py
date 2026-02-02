@@ -1,3 +1,4 @@
+'''Documentacion de Listas en Python'''
 # ==========================================================
 # LISTAS EN PYTHON (list)
 # ==========================================================
@@ -41,11 +42,11 @@ print("Matriz:", matrix)
 # También se permiten índices negativos:
 # - índice -1 -> último elemento
 # - índice -2 -> anteúltimo, etc.
-primer_elemento = mi_lista[0]     # Acceder al primer elemento
-ultimo_elemento = mi_lista[-1]    # Acceder al último elemento
+PRIMER_ELEMENTO = mi_lista[0]     # Acceder al primer elemento
+ULTIMO_ELEMENTO = mi_lista[-1]    # Acceder al último elemento
 
-print("Primer elemento de mi_lista:", primer_elemento)
-print("Último elemento de mi_lista:", ultimo_elemento)
+print("Primer elemento de mi_lista:", PRIMER_ELEMENTO)
+print("Último elemento de mi_lista:", ULTIMO_ELEMENTO)
 
 
 # ----------------------------------------------------------
@@ -55,8 +56,8 @@ print("Último elemento de mi_lista:", ultimo_elemento)
 #             0       1
 # mi_lista4[1] -> [3, 4]
 # mi_lista4[1][0] -> 3
-elemento_anidado = mi_lista4[1][0]
-print("Elemento anidado de mi_lista4:", elemento_anidado)
+ELEMENTO_ANIDADO = mi_lista4[1][0]
+print("Elemento anidado de mi_lista4:", ELEMENTO_ANIDADO)
 
 
 # ==========================================================
