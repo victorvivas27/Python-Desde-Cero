@@ -1,3 +1,4 @@
+'''Documentacion de bucles for en Python'''
 # ----------------------------------------------------------
 # LIMPIAR LA CONSOLA (OPCIONAL)
 # ----------------------------------------------------------
@@ -34,10 +35,10 @@ for fruta in frutas:
 # ----------------------------------------------------------
 # ITERAR UNA CADENA (STRING)
 # ----------------------------------------------------------
-cadena = "Python"
+CADENA = "Python"
 
 # Cada carácter del string se recorre uno por uno
-for letra in cadena:
+for letra in CADENA:
     print(letra)
 
 

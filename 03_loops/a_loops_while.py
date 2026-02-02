@@ -38,7 +38,7 @@ CONTADOR = 0
 while CONTADOR < 10:
     print("Contador sin break:", CONTADOR)
     CONTADOR += 1   # MUY IMPORTANTE
-                    # Sin esto, el bucle sería infinito
+    # Sin esto, el bucle sería infinito
 
 
 # ==========================================================

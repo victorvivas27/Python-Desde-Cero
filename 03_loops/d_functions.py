@@ -26,12 +26,11 @@ os.system('clear')  # En Windows suele usarse 'cls'
 # ----------------------------------------------------------
 # ESTRUCTURA GENERAL DE UNA FUNCIÓN
 # ----------------------------------------------------------
-"""
-def nombre_de_la_funcion(parametro1, parametro2, ...):
-    '''Docstring: explicación de lo que hace la función'''
-    # cuerpo de la función
-    return valor  # opcional
-"""
+
+# def nombre_de_la_funcion(parametro1, parametro2, ...):
+# '''Docstring: explicación de lo que hace la función'''
+# cuerpo de la función
+# return valor  # opcional
 
 
 # ==========================================================
@@ -52,7 +51,7 @@ saludar()
 # ==========================================================
 # FUNCIÓN CON PARÁMETROS
 # ==========================================================
-def saludar(nombre):
+def saludar_con_nombre(nombre):
     """
     Imprime un saludo usando el nombre recibido.
 
@@ -66,9 +65,9 @@ def saludar(nombre):
     print(f"Hola {nombre}, ¿cómo estás?")
 
 
-saludar("Carlos")
-saludar("Pedro")
-saludar("Juan")
+saludar_con_nombre("Carlos")
+saludar_con_nombre("Pedro")
+saludar_con_nombre("Juan")
 
 
 # ==========================================================
@@ -89,8 +88,8 @@ def sumar(a, b):
     return suma
 
 
-resultado = sumar(23, 34)
-print("La suma es:", resultado)
+RESULTADO = sumar(23, 34)
+print("La suma es:", RESULTADO)
 
 # Ver documentación de una función:
 # print(saludar.__doc__)
@@ -106,7 +105,7 @@ print("La suma es:", resultado)
 # - Ej: def f(a, b=0): ✅
 # - Ej: def f(a=0, b): ❌
 
-def saludar(nombre="Desconocido", apellido=""):
+def saludar_con_nombre_y_apellido(nombre="Desconocido", apellido="") -> str:
     """
     Imprime un saludo con nombre y apellido.
 
@@ -124,8 +123,8 @@ def saludar(nombre="Desconocido", apellido=""):
 
 
 saludar()
-saludar("Carlos")
-saludar("Carlos", "García")
+saludar_con_nombre_y_apellido("Carlos")
+saludar_con_nombre_y_apellido("Carlos", "García")
 
 
 # ==========================================================
@@ -148,7 +147,8 @@ def persona(nombre, apellido, edad):
 persona("Carlos", "García", 25)
 
 # OJO: si cambiás el orden, el programa "funciona" pero los datos quedan mal
-persona(23, "García", "Carlos")   # Esto es un ejemplo de por qué conviene usar argumentos por clave
+# Esto es un ejemplo de por qué conviene usar argumentos por clave
+persona(23, "García", "Carlos")
 
 
 # ==========================================================
@@ -183,7 +183,7 @@ def restar_numeros(*args):
     return restar
 
 
-print(restar_numeros(1,2,3,4,5,6,7,8,9,10))
+print(restar_numeros(1, 2, 3, 4, 5, 6, 7, 8, 9, 10))
 
 
 # ==========================================================
