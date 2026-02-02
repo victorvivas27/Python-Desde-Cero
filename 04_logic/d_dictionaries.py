@@ -53,7 +53,8 @@ print(persona["apellido"])
 print(persona["edad"])
 print(persona["es_estudiante"])
 print(persona["cursos"])
-print(persona["calificaciones"][1])      # Acceso a lista dentro del diccionario
+# Acceso a lista dentro del diccionario
+print(persona["calificaciones"][1])
 print(persona["social"]["facebook"])      # Acceso a diccionario anidado
 print(persona["social"]["twitter"])
 print(persona["social"]["instagram"])

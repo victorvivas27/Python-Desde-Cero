@@ -1,3 +1,4 @@
+'''Desafio de Jurassic Park en Python'''
 # ----------------------------------------------------------
 # LIMPIAR LA CONSOLA (OPCIONAL)
 # ----------------------------------------------------------
@@ -21,8 +22,7 @@ os.system('clear')  # En Windows suele usarse 'cls'
 # - Devuelva la suma total de esos números pares
 # ==========================================================
 
-
-def count_carnivore_dinosaur_eggs(eggs_list: list) -> int:
+def count_carnivore_dinosaur_eggs(list_eggs: list) -> int:
     """
     Calcula la cantidad total de huevos puestos por
     dinosaurios carnívoros (números pares).
@@ -60,7 +60,7 @@ def count_carnivore_dinosaur_eggs(eggs_list: list) -> int:
 
     total_carnivores_eggs = 0
 
-    for eggs in eggs_list:
+    for eggs in list_eggs:
         # Verificamos si el número es par
         if eggs % 2 == 0:
             total_carnivores_eggs += eggs
@@ -72,4 +72,5 @@ def count_carnivore_dinosaur_eggs(eggs_list: list) -> int:
 # PRUEBA DE LA FUNCIÓN
 # ==========================================================
 eggs_list = [3, 4, 7, 5, 8]
+
 print(count_carnivore_dinosaur_eggs(eggs_list))

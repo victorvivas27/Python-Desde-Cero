@@ -1,3 +1,4 @@
+'''Desafio de encontrar dos numeros que sumen un objetivo en Python'''
 # ----------------------------------------------------------
 # LIMPIAR LA CONSOLA (OPCIONAL)
 # ----------------------------------------------------------
@@ -94,8 +95,10 @@ def find_first_sum(nums, goal):
 # ==========================================================
 # PRUEBA DE LA FUNCIÓN
 # ==========================================================
-nums = [4, 5, 6, 2]
-goal = 8
+nums_goals_01 = [4, 5, 6, 2]
+GOAL = 8
+
+print(find_first_sum(nums=nums_goals_01, goal=GOAL))
 
 # ==========================================================
 # EJERCICIO: ENCONTRAR DOS NÚMEROS QUE SUMEN UN OBJETIVO
@@ -108,7 +111,8 @@ goal = 8
 # recorremos la lista una sola vez (O(n)).
 # ==========================================================
 
-def find_first_sum_dict(nums, goal):
+
+def find_first_sum_dict(nums_goals, goal):
     """
     Encuentra los índices del PRIMER par de números cuya
     suma sea igual al valor objetivo (goal), usando
@@ -142,7 +146,7 @@ def find_first_sum_dict(nums, goal):
     # ------------------------------------------------------
     # Recorremos la lista UNA sola vez
     # ------------------------------------------------------
-    for index, value in enumerate(nums):
+    for index, value in enumerate(nums_goals):
 
         # Calculamos el complemento necesario
         # para llegar al objetivo
@@ -168,6 +172,6 @@ def find_first_sum_dict(nums, goal):
 # PRUEBA DE LA FUNCIÓN
 # ==========================================================
 numeros = [4, 5, 6, 2, 8, 3, 5, 7, 1]
-objetivo = 8
+OBJETIVO = 8
 
-print(find_first_sum_dict(numeros, objetivo))
+print(find_first_sum_dict(nums_goals=numeros, goal=OBJETIVO))

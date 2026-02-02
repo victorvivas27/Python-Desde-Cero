@@ -8,8 +8,10 @@ Cada número en lista_a se "enfrenta" al número en la misma posición en lista_
 - Si los dos números son iguales, ambos se eliminan y no afectan al siguiente par.
 
 Debes simular estos enfrentamientos y devolver el resultado final:
-- Si al final queda un número en lista_a, devuelve ese número seguido de la letra "lista_a" (por ejemplo, "3a").
-- Si al final queda un número en lista_b, devuelve ese número seguido de la letra "lista_b" (por ejemplo, "2b").
+- Si al final queda un número en lista_a
+- devuelve ese número seguido de la letra "lista_a" (por ejemplo, "3a").
+- Si al final queda un número en lista_b
+- devuelve ese número seguido de la letra "lista_b" (por ejemplo, "2b").
 - En caso de empate, devuelve la letra "x".
 
 lista_a = [2, 4, 2]
@@ -36,10 +38,11 @@ resultado = battle(lista_a, lista_b)  # -> "x"
 """
 
 from os import system
-if system("clear") != 0: system("cls")
+if system("clear") != 0:
+    system("cls")
 
 # Fuerza bruta: buscar la solución A SACO.
-# Algoritmos ocultos o cálculos o fórmulas
+#  Algoritmos ocultos o cálculos o fórmulas
 # Programación dinámica: buscar una solución mas eficiente
 
 
@@ -120,8 +123,9 @@ def battle(lista_a, lista_b):
         return f"{total_b}b"
     else:
         return "x"
-    
-lista_a = [4, 4, 4,5]
-lista_b = [2, 8, 2,3]
-winner = battle(lista_a, lista_b)
-print(winner)    
+
+
+lista_a_01 = [4, 4, 4, 5]
+lista_b_02 = [2, 8, 2, 3]
+WINNER = battle(lista_a=lista_a_01, lista_b=lista_b_02)
+print(WINNER)

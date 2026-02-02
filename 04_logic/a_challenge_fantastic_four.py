@@ -1,3 +1,4 @@
+'''Desafio de equilibrio de la alianza en el Fantastic Four en Python '''
 # ----------------------------------------------------------
 # LIMPIAR LA CONSOLA (OPCIONAL)
 # ----------------------------------------------------------
