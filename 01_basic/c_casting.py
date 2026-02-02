@@ -1,3 +1,4 @@
+'''Documentacion de casting en Python'''
 # ==========================================================
 # CASTING (CONVERSIÓN DE TIPOS DE DATOS) EN PYTHON
 # ==========================================================
@@ -100,5 +101,5 @@ print(bool(""))             # False
 #   - ""
 #   - None
 #
-# Todo lo demás se considera True
+# Lo demás se considera True
 # ==========================================================
