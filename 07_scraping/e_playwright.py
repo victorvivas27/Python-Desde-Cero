@@ -1,13 +1,18 @@
+'''Documentación oficial: https://playwright.dev/python/docs/locators'''
 import re
 from playwright.sync_api import Page, expect
 
+
 def test_has_title(page: Page):
+    '''Funcion test_has_title()'''
     page.goto("https://playwright.dev/")
 
     # Se espera que un título "contenga" una subcadena
     expect(page).to_have_title(re.compile("Playwright"))
 
+
 def test_get_started_link(page: Page):
+    '''Funcion test_get_started_link()'''
     page.goto("https://playwright.dev/")
 
     # Haga clic en el enlace link.

@@ -1,12 +1,13 @@
+'''Documentacion de scrping usando beautiful soup'''
 # ==============================
 # IMPORTS
 # ==============================
-
-import requests      # Librería para realizar peticiones HTTP (GET, POST, etc.)
-import os            # Permite ejecutar comandos del sistema (ej: limpiar consola)
-from bs4 import BeautifulSoup  # Parser HTML: convierte el HTML en un árbol navegable
+import sys
+# Permite ejecutar comandos del sistema (ej: limpiar consola)
+import os
 import argparse      # Permite leer argumentos desde la línea de comandos
-from urllib.parse import urljoin  # Une URLs relativas con una URL base
+import requests      # Librería para realizar peticiones HTTP (GET, POST, etc.)
+from bs4 import BeautifulSoup  # Parser HTML: convierte el HTML en un árbol navegable
 
 
 # ==============================
@@ -62,7 +63,7 @@ if response.status_code == 200:
     print("✅ Petición exitosa")
 else:
     print("❌ Error en la petición")
-    exit()  # Cortamos el programa si falla
+    sys.exit(1)  # Cortamos el programa si falla
 
 
 # ==============================
@@ -77,9 +78,9 @@ soup = BeautifulSoup(response.text, 'html.parser')
 # ==============================
 # Se usan para mejorar la legibilidad de la salida
 RESET = "\x1b[0m"               # Resetea estilos
-INFO  = "\x1b[46m\x1b[30m"      # Fondo cian + texto negro
-OK    = "\x1b[32m"              # Verde
-WARN  = "\x1b[33m"              # Amarillo
+INFO = "\x1b[46m\x1b[30m"      # Fondo cian + texto negro
+OK = "\x1b[32m"              # Verde
+WARN = "\x1b[33m"              # Amarillo
 ERROR = "\x1b[31m"              # Rojo
 TITLE = "\x1b[1;34m"            # Azul + negrita
 
@@ -135,8 +136,6 @@ else:
     # Exactamente un h1 (correcto)
     print(f"{OK}✅ La página tiene un solo título h1 (<h1>){RESET}\n")
 
-          
+
 # Uso --> navega al archivo cd nombre_archivo.py
 # Haces correr el archivo que contien el codigo --> python nombre_archivo.py http://url_ejemplo
- 
-

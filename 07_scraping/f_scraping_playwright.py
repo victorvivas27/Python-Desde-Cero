@@ -1,14 +1,14 @@
+'''Documentación oficial: https://playwright.dev/python/docs/locators'''
 # ==============================
 # IMPORTS
 # ==============================
-
+from urllib.parse import urljoin
 from playwright.sync_api import sync_playwright
 # sync_playwright:
 # API síncrona de Playwright.
 # Permite controlar un navegador real (Chromium, Firefox, WebKit)
 # como si fuera un usuario humano.
 
-from urllib.parse import urljoin
 # urljoin:
 # Une una URL base con una URL relativa
 # Ej: urljoin("https://midu.dev", "/images/img.png")
@@ -19,7 +19,7 @@ from urllib.parse import urljoin
 # URL OBJETIVO
 # ==============================
 
-url = "https://midu.dev"
+URL = "https://midu.dev"
 
 
 # ==============================
@@ -40,7 +40,7 @@ with sync_playwright() as p:
     page = browser.new_page()
 
     # Navegamos a la URL indicada
-    page.goto(url)
+    page.goto(URL)
 
 
     # ==============================
@@ -80,7 +80,7 @@ with sync_playwright() as p:
 
     # Unimos la URL base con el src de la imagen
     # (por si el src es relativo)
-    imagen_url_completa = urljoin(url, imagen_src)
+    imagen_url_completa = urljoin(URL, imagen_src)
 
     # Mostramos el resultado
     print(f"La URL de la primera imagen es: {imagen_url_completa}")

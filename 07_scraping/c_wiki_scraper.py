@@ -1,7 +1,11 @@
+'''Documentacion de scrping usando beautiful soup'''
+import os
+import sys # Librería para interactuar con el sistema operativo (por ejemplo, limpiar la consola)
+# Une una URL base con una URL relativa (ej: "/wiki/Python" -> "https://.../wiki/Python")
+from urllib.parse import urljoin
 import requests      # Librería para hacer peticiones HTTP (GET, POST, etc.)
-import os            # Librería para interactuar con el sistema operativo (por ejemplo, limpiar la consola)
-from bs4 import BeautifulSoup  # Parser HTML: convierte el HTML en un “árbol” fácil de recorrer
-from urllib.parse import urljoin  # Une una URL base con una URL relativa (ej: "/wiki/Python" -> "https://.../wiki/Python")
+# Parser HTML: convierte el HTML en un “árbol” fácil de recorrer
+from bs4 import BeautifulSoup
 
 
 # ----------------------------------------------------------
@@ -18,6 +22,7 @@ if os.system("clear") != 0:
 # FUNCIÓN: OBTENER CONTENIDO DE UNA URL
 # ----------------------------------------------------------
 def obtener_contenido(url: str):
+    '''funcion que obtiene el contenido de una url'''
     # Headers: algunos sitios bloquean bots simples.
     # User-Agent “disfraza” la petición como si fuera un navegador real.
     headers = {
@@ -40,7 +45,7 @@ def obtener_contenido(url: str):
         print("✅ Petición exitosa")
     else:
         print("❌ Error en la petición")
-        exit()
+        sys.exit(1)
 
     # Creamos el "soup": BeautifulSoup parsea el HTML y lo convierte en un objeto navegable
     # 'html.parser' es el parser estándar incluido en Python
@@ -51,7 +56,8 @@ def obtener_contenido(url: str):
     # ----------------------------------------------------------
     # soup.find_all('h1') devuelve una lista de etiquetas <h1> encontradas.
     # titulo.get_text(strip=True) saca texto limpio, evitando None y espacios raros.
-    titulos_h1 = [titulo.get_text(strip=True) for titulo in soup.find_all('h1')]
+    titulos_h1 = [titulo.get_text(strip=True)
+                  for titulo in soup.find_all('h1')]
     print("Títulos H1 encontrados:", titulos_h1)
 
     # ----------------------------------------------------------

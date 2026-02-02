@@ -1,5 +1,8 @@
-import requests      # Librería para hacer peticiones HTTP (GET, POST, etc.)
+'''Documentacion de scrping usando beautiful soup'''
+import re
 import os            # Librería para interactuar con el sistema operativo
+import sys
+import requests      # Librería para hacer peticiones HTTP (GET, POST, etc.)
 from bs4 import BeautifulSoup
 
 
@@ -10,28 +13,27 @@ from bs4 import BeautifulSoup
 # Si falla, intenta hacerlo en Windows ("cls")
 if os.system("clear") != 0:
     os.system("cls")
-    
 # ------------------------------------------
 # Scraping con BeautifulSoup
 # ------------------------------------------
-#Pro y contras de BeautifulSoup
+# Pro y contras de BeautifulSoup
 
-#Pro 
+# Pro
 # Muy rápido y eficiente
 # No depende de un navegador
 # Fácil de implementar Y FACIL de encontrar atributos ,elementos y filtrar
 
 
-#Contras
+# Contras
 # No puede saltarse captchas o paywalls
 # No ejecuta JavaScript
-# No se puede navegar     
-    
+# No se puede navegar
+
  # URL del sitio que queremos analizar
-base_url = "https://www.apple.com/cl/shop/buy-mac"
+BASE_URL = "https://www.apple.com/cl/shop/buy-mac"
 
 # Realizamos una petición HTTP GET a la URL
-response = requests.get(base_url)
+response = requests.get(BASE_URL, timeout=10)
 
 # Verificamos si la petición fue exitosa
 # Código 200 significa "OK"
@@ -39,44 +41,46 @@ if response.status_code == 200:
     print("Petición exitosa")
 else:
     print("Error en la petición")
-    exit()  # Salimos del programa si la petición falla   
+    sys.exit(1)  # Salimos del programa si la petición falla
 soup = BeautifulSoup(response.text, 'html.parser')
-#print(soup.prettify())
+# print(soup.prettify())
 title_tag = soup.title
 if title_tag:
-     print(f"El títutlo de la página es: {title_tag.string}\n") # Se puede usar tambien .text 
-     
+    # Se puede usar tambien .text
+    print(f"El títutlo de la página es: {title_tag.string}\n")
+
 metas = soup.title.parent.findAll('meta')
-print(f"Los metas de la página son: {metas}\n") # Se puede usar tambien .text (metas)
+# Se puede usar tambien .text (metas)
+print(f"Los metas de la página son: {metas}\n")
 
-#Precio unitario del producto
-#Saber que etiqueta contiene el precio unitario ayuda pero no es obligatorio
+# Precio unitario del producto
+# Saber que etiqueta contiene el precio unitario ayuda pero no es obligatorio
 price_tag = soup.find('span', class_='nowrap')
-print(f"El precio unitario del producto es: {price_tag.string}\n")  
+print(f"El precio unitario del producto es: {price_tag.string}\n")
 
 
-#Todos los precios unitarios de los productos
+# Todos los precios unitarios de los productos
 price_tags = soup.find_all('span', class_='nowrap')
 for price in price_tags:
-   print(f"Todos los precios unitarios del producto son: {price.text}\n")
+    print(f"Todos los precios unitarios del producto son: {price.text}\n")
 
-#Todos los precios mas caractristicas  y titulo 
+# Todos los precios mas caractristicas  y titulo
 
 # ----------------------------------------------------------
 # URL A SCRAPEAR
 # ----------------------------------------------------------
-url = "https://www.falabella.com/falabella-cl/brand/SAMSUNG"
+URL = "https://www.falabella.com/falabella-cl/brand/SAMSUNG"
 
 # ----------------------------------------------------------
 # PETICIÓN HTTP
 # ----------------------------------------------------------
-response = requests.get(url)
+response = requests.get(URL, timeout=10)
 
 if response.status_code == 200:
     print("Petición exitosa")
 else:
     print("Error en la petición")
-    exit()
+    sys.exit(1)
 
 # ----------------------------------------------------------
 # PARSEO DEL HTML
@@ -98,7 +102,6 @@ products = soup.find_all(class_='jsx-636341914')
 # ----------------------------------------------------------
 # RECORRER PRODUCTOS
 # ----------------------------------------------------------
-import re
 
 # Recorremos cada producto
 for product in products:
@@ -115,7 +118,7 @@ for product in products:
     # ----------------------------
     # PRECIO DEL PRODUCTO
     # ----------------------------
-    price = None
+    PRECIO = None
 
     # Buscamos TODOS los span dentro del producto
     spans = product.find_all('span')
@@ -125,13 +128,12 @@ for product in products:
 
         # Regex: busca precios tipo $ 899.990
         if re.search(r'\$\s*\d{1,3}(\.\d{3})*', text):
-            price = text
+            PRECIO = text
             break
 
     # ----------------------------
     # MOSTRAR RESULTADO
     # ----------------------------
-    if price:
+    if PRECIO:
         print(f"Producto: {name}")
-        print(f"Precio: {price}\n")  
-    
+        print(f"Precio: {PRECIO}\n")

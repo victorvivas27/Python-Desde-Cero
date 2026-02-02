@@ -1,6 +1,8 @@
-import requests      # Librería para hacer peticiones HTTP (GET, POST, etc.)
-import re            # Librería para trabajar con expresiones regulares (regex)
+'''Documentacion scraping de precios de apple usando regex'''
 import os            # Librería para interactuar con el sistema operativo
+import re            # Librería para hacer peticiones HTTP (GET, POST, etc.)
+import sys
+import requests
 
 # ----------------------------------------------------------
 # LIMPIAR CONSOLA (OPCIONAL)
@@ -28,10 +30,10 @@ if os.system("clear") != 0:
 # ----------------------------------------------------------
 
 # URL del sitio que queremos analizar
-base_url = "https://www.apple.com/cl/shop/buy-mac"
+BASE_URL = "https://www.apple.com/cl/shop/buy-mac"
 
 # Realizamos una petición HTTP GET a la URL
-response = requests.get(base_url)
+response = requests.get(BASE_URL, timeout=10)
 
 # Verificamos si la petición fue exitosa
 # Código 200 significa "OK"
@@ -39,7 +41,7 @@ if response.status_code == 200:
     print("Petición exitosa")
 else:
     print("Error en la petición")
-    exit()  # Salimos del programa si la petición falla
+    sys.exit(1)  # Salimos del programa si la petición falla
 
 # Guardamos el contenido HTML de la página como texto
 html = response.text
@@ -52,10 +54,10 @@ html = response.text
 #
 # (.*?) captura cualquier contenido entre las etiquetas
 # de forma no codiciosa (lazy)
-price_pattern = r'<span class="nowrap">(.*?)</span>'
+PRECIO_PATRON = r'<span class="nowrap">(.*?)</span>'
 
 # Buscamos la primera coincidencia en el HTML
-match = re.search(price_pattern, html)
+match = re.search(PRECIO_PATRON, html)
 
 # Verificamos si se encontró algo
 if match:
