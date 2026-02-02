@@ -1,3 +1,4 @@
+'''Documentacion de funciones en Python'''
 # ----------------------------------------------------------
 # LIMPIAR LA CONSOLA (OPCIONAL)
 # ----------------------------------------------------------
@@ -51,7 +52,7 @@ saludar()
 # ==========================================================
 # FUNCIÓN CON PARÁMETROS
 # ==========================================================
-def saludar_con_nombre(nombre):
+def saludar_con_nombre(nombre: str)-> str:
     """
     Imprime un saludo usando el nombre recibido.
 
@@ -132,7 +133,7 @@ saludar_con_nombre_y_apellido("Carlos", "García")
 # ==========================================================
 # Python asigna los argumentos según el orden.
 
-def persona(nombre, apellido, edad):
+def persona(nombre: str, apellido: str, edad: int)->str:
     """
     Imprime una descripción de la persona.
 
@@ -167,7 +168,7 @@ persona(edad=23, apellido="García", nombre="Carlos")
 # Permite recibir muchos argumentos sin saber cuántos serán.
 # args llega como una tupla.
 
-def restar_numeros(*args):
+def restar_numeros(*args)-> int | float:
     """
     Resta todos los números recibidos.
 
@@ -192,7 +193,7 @@ print(restar_numeros(1, 2, 3, 4, 5, 6, 7, 8, 9, 10))
 # Recibe argumentos con nombre: clave=valor
 # kwargs llega como un diccionario.
 
-def mostrar_informacion_de(**kwargs):
+def mostrar_informacion_de(**kwargs: dict)->None:
     """
     Muestra información en formato clave: valor.
 
