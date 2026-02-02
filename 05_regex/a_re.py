@@ -1,7 +1,25 @@
+'''Documentacion de expresiones regulares en Python'''
+
+
+# ¿Por qué aprender Regex?
+
+# -Búsqueda avanzada:
+# Encontrar patrones específicos en textos grandes de forma rápida y precisa.
+
+# - Validación de datos:
+# Verificar que un email, teléfono, contraseña, etc. tengan el formato correcto.
+
+# - Manipulación de texto:
+# Extraer, reemplazar y modificar cadenas fácilmente.
+
 # ----------------------------------------------------------
 # LIMPIAR LA CONSOLA (OPCIONAL)
 # ----------------------------------------------------------
 from os import system
+# ==========================================================
+# IMPORTAR EL MÓDULO re
+# ==========================================================
+import re
 
 # Intentamos limpiar consola en Linux / macOS
 # Si falla (retorna distinto de 0), usamos el comando de Windows
@@ -22,48 +40,25 @@ if system("clear") != 0:
 # - Reemplazar partes de un texto
 # ==========================================================
 
-
-"""
-¿Por qué aprender Regex?
-
-- Búsqueda avanzada:
-  Encontrar patrones específicos en textos grandes
-  de forma rápida y precisa.
-
-- Validación de datos:
-  Verificar que un email, teléfono, contraseña, etc.
-  tengan el formato correcto.
-
-- Manipulación de texto:
-  Extraer, reemplazar y modificar cadenas fácilmente.
-"""
-
-
-# ==========================================================
-# PASO 1: IMPORTAR EL MÓDULO re
-# ==========================================================
-import re
-
-
 # ==========================================================
 # PASO 2: DEFINIR UN PATRÓN
 # ==========================================================
 # El patrón es una cadena de texto que define
 # lo que queremos buscar
-pattern = "Hola"
+PATRON = "Hola"
 
 
 # ==========================================================
 # PASO 3: DEFINIR EL TEXTO DONDE BUSCAR
 # ==========================================================
-text = "Hola, este es un ejemplo de expresión regular. Hola de nuevo."
+TEXTO = "Hola, este es un ejemplo de expresión regular. Hola de nuevo."
 
 
 # ==========================================================
 # PASO 4: BUSCAR EL PATRÓN EN EL TEXTO
 # ==========================================================
 # re.search() busca la PRIMERA coincidencia
-result = re.search(pattern, text)
+result = re.search(PATRON, TEXTO)
 
 if result:
     print("Patrón encontrado")
@@ -90,8 +85,8 @@ print(f"Patrón encontrado en la posición: {result.start()} - {result.end()}")
 # ==========================================================
 # re.findall() devuelve una LISTA con todas las coincidencias
 
-text = "Hola, este es un ejemplo de expresión regular. Hola de nuevo. Hola otra vez."
-all_results = re.findall(pattern, text)
+TEXTO = "Hola, este es un ejemplo de expresión regular. Hola de nuevo. Hola otra vez."
+all_results = re.findall(PATRON, TEXTO)
 
 print(all_results)
 print(len(all_results))  # Cantidad de coincidencias encontradas
@@ -104,7 +99,7 @@ print(len(all_results))  # Cantidad de coincidencias encontradas
 # Es útil cuando queremos información detallada
 # de cada coincidencia
 
-matches = re.finditer(pattern, text)
+matches = re.finditer(PATRON, TEXTO)
 
 for match in matches:
     print(match.group(), match.start(), match.end())
@@ -118,10 +113,10 @@ for match in matches:
 # re.IGNORECASE o re.I:
 # - Ignora mayúsculas y minúsculas
 
-pattern = "hola"
-text = "Hola, este es un ejemplo de expresión regular. hola de nuevo. Hola otra vez."
+PATRON = "hola"
+TEXTO = "Hola, este es un ejemplo de expresión regular. hola de nuevo. Hola otra vez."
 
-all_results = re.findall(pattern, text, re.IGNORECASE)
+all_results = re.findall(PATRON, TEXTO, re.IGNORECASE)
 print(all_results)
 
 
@@ -137,10 +132,10 @@ print(all_results)
 # - Limita la cantidad de reemplazos
 # - Por defecto reemplaza TODAS las coincidencias
 
-text = "Hola, este es un ejemplo de expresión regular. Hola de nuevo."
-pattern = "Hola"
-replacement = "Adiós"
+TEXTO = "Hola, este es un ejemplo de expresión regular. Hola de nuevo."
+PATRON = "Hola"
+REMPLAZO = "Adiós"
 
 # Reemplaza SOLO la primera ocurrencia
-new_text = re.sub(pattern, replacement, text, count=1)
+new_text = re.sub(PATRON, REMPLAZO, TEXTO, count=1)
 print(new_text)
