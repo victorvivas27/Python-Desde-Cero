@@ -1,23 +1,25 @@
+'''Documentacion consumo de fechas en Python'''
 # ----------------------------------------------------------
 # LIMPIAR LA CONSOLA (OPCIONAL)
 # ----------------------------------------------------------
 # Importamos la función system para ejecutar comandos del sistema
 from os import system
-
-# Intentamos limpiar la consola en Linux / macOS.
-# Si falla (retorna distinto de 0), usamos el comando de Windows.
-if system("clear") != 0:
-    system("cls")
-
-
 # ==========================================================
 # TRABAJANDO CON FECHAS Y HORAS (datetime)
 # ==========================================================
 # datetime  : para crear / manejar fechas y horas
 # timedelta : para sumar o restar tiempo (días, horas, etc.)
 # ==========================================================
-
 from datetime import datetime, timedelta
+# ----------------------------------------------------------
+# 9) CAMBIAR IDIOMA/LOCALIZACIÓN (locale) - CON CONTROL DE ERRORES
+# ----------------------------------------------------------
+import locale
+
+# Intentamos limpiar la consola en Linux / macOS.
+# Si falla (retorna distinto de 0), usamos el comando de Windows.
+if system("clear") != 0:
+    system("cls")
 
 
 # ----------------------------------------------------------
@@ -74,14 +76,16 @@ print(f"4) Medio día después: {medio_dia_despues}")
 # ----------------------------------------------------------
 # 5) OBTENER COMPONENTES INDIVIDUALES
 # ----------------------------------------------------------
-año = fecha_actual.year
+ano = fecha_actual.year
 mes = fecha_actual.month
-día = fecha_actual.day
+dia = fecha_actual.day
 hora = fecha_actual.hour
 minuto = fecha_actual.minute
 segundo = fecha_actual.second
 
-print(f"5) Año:{año}, Mes:{mes}, Día:{día}, Hora:{hora}, Minuto:{minuto}, Segundo:{segundo}")
+print(
+    f"5) Año:{ano}, Mes:{mes}, Día:{dia}, Hora:{hora}, Minuto:{minuto}, Segundo:{segundo}"
+)
 
 
 # ----------------------------------------------------------
@@ -90,9 +94,9 @@ print(f"5) Año:{año}, Mes:{mes}, Día:{día}, Hora:{hora}, Minuto:{minuto}, Se
 # Ojo: si restás "fecha_actual - fecha_futura", la diferencia será NEGATIVA
 # porque la fecha futura aún no ocurrió.
 
-mi_cumpleaños = datetime(2026, 11, 27, 15, 30, 0)
+mi_cumpleanos = datetime(2026, 11, 27, 15, 30, 0)
 
-diferencia = mi_cumpleaños - fecha_actual  # así te da "cuánto falta"
+diferencia = mi_cumpleanos - fecha_actual  # así te da "cuánto falta"
 print(f"6) Tiempo que falta para mi cumpleaños: {diferencia}")
 
 # Podemos obtener días y segundos por separado:
@@ -107,7 +111,7 @@ print(f"6) Segundos restantes (sobrantes del día): {diferencia.seconds}")
 # Porque si todavía NO cumpliste este año, te suma 1 de más.
 fecha_nacimiento = datetime(1978, 11, 27)
 
-edad = año - fecha_nacimiento.year
+edad = ano - fecha_nacimiento.year
 
 # Si todavía no llegó tu cumpleaños este año, restamos 1
 # (mes, día) compara tu cumpleaños con la fecha actual
@@ -121,15 +125,9 @@ print(f"7) Mi edad es: {edad}")
 # 8) PARSEAR (CONVERTIR) STRING A FECHA (strptime)  ✅ MUY IMPORTANTE
 # ----------------------------------------------------------
 # strptime convierte string -> datetime
-texto_fecha = "27/11/1978 15:30:00"
-fecha_parseada = datetime.strptime(texto_fecha, "%d/%m/%Y %H:%M:%S")
+TEXTO_FECHA = "27/11/1978 15:30:00"
+fecha_parseada = datetime.strptime(TEXTO_FECHA, "%d/%m/%Y %H:%M:%S")
 print(f"8) Fecha parseada desde texto: {fecha_parseada}")
-
-
-# ----------------------------------------------------------
-# 9) CAMBIAR IDIOMA/LOCALIZACIÓN (locale) - CON CONTROL DE ERRORES
-# ----------------------------------------------------------
-import locale
 
 # En muchos sistemas 'es_ES.UTF-8' puede NO estar instalado.
 # Por eso hacemos try/except y probamos alternativas típicas.
@@ -142,17 +140,17 @@ locales_posibles = [
     "es_AR"          # alternativa
 ]
 
-locale_configurado = False
+LOCAL_COFIGURABLE = False
 
 for loc in locales_posibles:
     try:
         locale.setlocale(locale.LC_TIME, loc)
-        locale_configurado = True
+        LOCAL_COFIGURABLE = True
         break
     except locale.Error:
         pass
 
-if locale_configurado:
+if LOCAL_COFIGURABLE:
     # %A = nombre del día (lunes, martes...)
     # %B = nombre del mes (enero, febrero...)
     fecha_formateada_es = fecha_actual.strftime("%A, %d de %B de %Y")

@@ -1,7 +1,7 @@
-from os import system
-import requests
-import json
+'''Documentacion consumo de chatgpt en Python'''
 import os
+import requests
+# import json
 from dotenv import load_dotenv
 
 # ----------------------------------------------------------
@@ -20,12 +20,14 @@ DEEPSEEK_API_KEY = os.getenv("DEEPSEEK_API_KEY")
 # Intentamos limpiar la consola según el sistema operativo:
 # - "clear" → Linux / macOS
 # - "cls"   → Windows
-if system("clear") != 0:
-    system("cls")
+if os.system("clear") != 0:
+    os.system("cls")
 
 # ==========================================================
 # OPENAI - RESPONSES API (MODELO MODERNO)
 # ==========================================================
+
+
 def call_openai_api(api_key, prompt):
     """
     Realiza una petición POST a la API de OpenAI usando el endpoint
@@ -67,14 +69,14 @@ def call_openai_api(api_key, prompt):
         ]
     }
 
-    response = requests.post(url, headers=headers, json=data)
+    response = requests.post(url, headers=headers, json=data, timeout=10)
     return response.json()
 
 
 # ==========================================================
 # DEEPSEEK - CHAT COMPLETIONS (OPENAI COMPATIBLE)
 # ==========================================================
-def call_DeepSeek_api_corrected(api_key, prompt):
+def call_deep_seek_api_corrected(api_key, prompt):
     """
     Realiza una petición POST a la API de DeepSeek usando el endpoint
     compatible con OpenAI: /v1/chat/completions.
@@ -114,15 +116,13 @@ def call_DeepSeek_api_corrected(api_key, prompt):
         "stream": False
     }
 
-    response = requests.post(url, headers=headers, json=data)
+    response = requests.post(url, headers=headers, json=data, timeout=10)
 
     if response.status_code == 200:
         result = response.json()
         # En chat completions, el texto está en choices
         return result["choices"][0]["message"]["content"]
-    else:
-        # Devuelve el error completo para debugging
-        return response.json()
+    return response.json()
 
 
 # ==========================================================
@@ -130,7 +130,7 @@ def call_DeepSeek_api_corrected(api_key, prompt):
 # ==========================================================
 # --- DeepSeek ---
 # try:
-#     respuesta_deepseek = call_DeepSeek_api_corrected(
+#     respuesta_deepseek = call_deep_seek_api_corrected(
 #         DEEPSEEK_API_KEY,
 #         "Escribe un breve poema sobre la programacion en Python"
 #     )

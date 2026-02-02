@@ -1,6 +1,12 @@
+'''Documentacion consumo de API con requests'''
 from os import system
-import urllib.request
-import json
+# import urllib.request
+# import json
+
+# ----------------------------------------------------------
+# USAMOS LA LIBRERÍA requests (MÁS SIMPLE Y LEGIBLE)
+# ----------------------------------------------------------
+import requests
 
 # ----------------------------------------------------------
 # LIMPIAR LA CONSOLA (OPCIONAL)
@@ -49,12 +55,6 @@ BASE_URL = "https://jsonplaceholder.typicode.com/posts"
 
 
 # ----------------------------------------------------------
-# USAMOS LA LIBRERÍA requests (MÁS SIMPLE Y LEGIBLE)
-# ----------------------------------------------------------
-import requests
-
-
-# ----------------------------------------------------------
 # PETICIÓN GET
 # ----------------------------------------------------------
 # Obtenemos todos los posts desde la API
@@ -63,7 +63,7 @@ try:
     print("\nHacemos la peticion GET: ")
 
     # Hacemos la solicitud GET
-    response = requests.get(BASE_URL)
+    response = requests.get(BASE_URL, timeout=10)
 
     # Convertimos la respuesta automáticamente a JSON
     data = response.json()
@@ -85,6 +85,7 @@ try:
 
     response = requests.post(
         BASE_URL,
+        timeout=10,
         json={
             "title": "foo",     # Título del post
             "body": "bar",      # Contenido del post
@@ -112,6 +113,7 @@ try:
 
     response = requests.put(
         BASE_URL + "/1",
+        timeout=10,
         json={
             "title": "Victor",  # Nuevo título
             "body": "Garcia",   # Nuevo contenido
@@ -136,6 +138,7 @@ try:
 
     response = requests.patch(
         BASE_URL + "/1",
+        timeout=10,
         json={
             "title": "Maria",   # Campo a modificar
             "body": "peron",   # Campo a modificar

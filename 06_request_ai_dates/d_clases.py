@@ -1,4 +1,6 @@
-from os import system
+'''Documentacion  clases en Python'''
+import os
+from dataclasses import dataclass
 
 # ----------------------------------------------------------
 # LIMPIAR LA CONSOLA (OPCIONAL)
@@ -7,8 +9,8 @@ from os import system
 # - "clear" → Linux / macOS
 # - "cls"   → Windows
 # Si el primer comando falla, se ejecuta el segundo
-if system("clear") != 0:
-    system("cls")
+if os.system("clear") != 0:
+    os.system("cls")
 
 
 # ==========================================================
@@ -31,8 +33,9 @@ if system("clear") != 0:
 # Convenciones:
 # - Nombre de la clase → Singular y CamelCase
 # - Atributos → minúsculas y snake_case
+@dataclass
 class Coche:
-
+    '''Clase Coche'''
     # ------------------------------------------------------
     # ATRIBUTOS DE CLASE
     # ------------------------------------------------------
@@ -60,6 +63,12 @@ class Coche:
     # ------------------------------------------------------
     # Define un comportamiento del objeto
     def arrancar(self):
+        '''
+         Muestra por pantalla un mensaje indicando que el coche
+         ha arrancado correctamente.
+         Parameters:
+         self (Coche): El objeto Coche que se quiere arrancar
+        '''
         print(f"El coche {self.marca} {self.modelo} arrancó correctamente")
 
 
