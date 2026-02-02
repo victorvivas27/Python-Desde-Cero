@@ -14,9 +14,12 @@
 # ----------------------------------------------------------
 # CREAR LISTAS
 # ----------------------------------------------------------
-mi_lista = [1, 2, 3, 2, 4, 6, 3]      # Lista de enteros (puede tener repetidos)
-mi_lista2 = [1, 2.3, "hola"]          # Lista con tipos mezclados (int, float, str)
-mi_lista3 = []                        # Lista vacía (en tu código decía "bacia", es "vacía")
+# Lista de enteros (puede tener repetidos)
+mi_lista = [1, 2, 3, 2, 4, 6, 3]
+# Lista con tipos mezclados (int, float, str)
+mi_lista2 = [1, 2.3, "hola"]
+# Lista vacía (en tu código decía "bacia", es "vacía")
+mi_lista3 = []
 mi_lista4 = [[1, 2], [3, 4]]          # Lista anidada (lista dentro de otra)
 matrix = [                            # Ejemplo de matriz 3x3 usando lista de listas
     [1, 2, 3],
@@ -157,7 +160,8 @@ print("Lista modificada:", mi_lista)
 mi_lista.append(7)                 # Agrega 7 al final
 print("Lista con el elemento 7:", mi_lista)
 
-mi_lista.insert(1, 5)              # Inserta 5 en el índice 1 (desplaza lo demás)
+# Inserta 5 en el índice 1 (desplaza lo demás)
+mi_lista.insert(1, 5)
 print("Lista con el elemento 5 en la posición 1:", mi_lista)
 
 mi_lista.extend([8, 9])            # Agrega varios elementos
@@ -186,9 +190,9 @@ print("Lista concatenada (crea nueva lista):", lista_concatenada)
 mi_lista += otra_lista
 print("mi_lista después de concatenar otra_lista:", mi_lista)
 
-#=========================================================
-#Largo de una lista
-#=========================================================
-#La función len() devuelve el número de elementos en una lista.
+# =========================================================
+# Largo de una lista
+# =========================================================
+# La función len() devuelve el número de elementos en una lista.
 
 print("Largo de mi_lista:", len(mi_lista))

@@ -132,7 +132,7 @@ else:
 
 print(
     "Comparación de cadenas:",
-    'manzana' == 'manzana'   
+    'manzana' == 'manzana'
 )  # True
 print('manzana' == 'manzana')   # True
 print('manzana' == 'Manzana')   # False (mayúscula ≠ minúscula)
