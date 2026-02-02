@@ -130,10 +130,7 @@ else:
 # NO compara el tipo ni la cantidad de cadenas.
 # Compara el CONTENIDO carácter por carácter.
 
-print(
-    "Comparación de cadenas:",
-    'manzana' == 'manzana'
-)  # True
+print("Comparación de cadenas:")
 print('manzana' == 'manzana')   # True
 print('manzana' == 'Manzana')   # False (mayúscula ≠ minúscula)
 print('manzana' == 'pera')      # False
