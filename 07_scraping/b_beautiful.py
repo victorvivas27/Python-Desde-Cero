@@ -29,11 +29,11 @@ if os.system("clear") != 0:
 # No ejecuta JavaScript
 # No se puede navegar
 
- # URL del sitio que queremos analizar
-BASE_URL = "https://www.apple.com/cl/shop/buy-mac"
+ # url del sitio que queremos analizar
+base_url = "https://www.apple.com/cl/shop/buy-mac"
 
-# Realizamos una petición HTTP GET a la URL
-response = requests.get(BASE_URL, timeout=10)
+# Realizamos una petición HTTP GET a la url
+response = requests.get(base_url, timeout=10)
 
 # Verificamos si la petición fue exitosa
 # Código 200 significa "OK"
@@ -67,14 +67,14 @@ for price in price_tags:
 # Todos los precios mas caractristicas  y titulo
 
 # ----------------------------------------------------------
-# URL A SCRAPEAR
+# url A SCRAPEAR
 # ----------------------------------------------------------
-URL = "https://www.falabella.com/falabella-cl/brand/SAMSUNG"
+url = "https://www.falabella.com/falabella-cl/brand/SAMSUNG"
 
 # ----------------------------------------------------------
 # PETICIÓN HTTP
 # ----------------------------------------------------------
-response = requests.get(URL, timeout=10)
+response = requests.get(url, timeout=10)
 
 if response.status_code == 200:
     print("Petición exitosa")
@@ -116,9 +116,9 @@ for product in products:
     name = name_tag.text.strip()
 
     # ----------------------------
-    # PRECIO DEL PRODUCTO
+    # precio DEL PRODUCTO
     # ----------------------------
-    PRECIO = None
+    precio = None
 
     # Buscamos TODOS los span dentro del producto
     spans = product.find_all('span')
@@ -128,12 +128,12 @@ for product in products:
 
         # Regex: busca precios tipo $ 899.990
         if re.search(r'\$\s*\d{1,3}(\.\d{3})*', text):
-            PRECIO = text
+            precio = text
             break
 
     # ----------------------------
     # MOSTRAR RESULTADO
     # ----------------------------
-    if PRECIO:
+    if precio:
         print(f"Producto: {name}")
-        print(f"Precio: {PRECIO}\n")
+        print(f"Precio: {precio}\n")

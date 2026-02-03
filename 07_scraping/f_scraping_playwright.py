@@ -10,16 +10,16 @@ from playwright.sync_api import sync_playwright
 # como si fuera un usuario humano.
 
 # urljoin:
-# Une una URL base con una URL relativa
+# Une una url base con una url relativa
 # Ej: urljoin("https://midu.dev", "/images/img.png")
 # -> https://midu.dev/images/img.png
 
 
 # ==============================
-# URL OBJETIVO
+# url OBJETIVO
 # ==============================
 
-URL = "https://midu.dev"
+url = "https://midu.dev"
 
 
 # ==============================
@@ -39,8 +39,8 @@ with sync_playwright() as p:
     # Abrimos una nueva pestaña (page)
     page = browser.new_page()
 
-    # Navegamos a la URL indicada
-    page.goto(URL)
+    # Navegamos a la url indicada
+    page.goto(url)
 
 
     # ==============================
@@ -78,12 +78,12 @@ with sync_playwright() as p:
     # Extraemos el atributo "src" de la imagen
     imagen_src = primera_imagen.get_attribute('src')
 
-    # Unimos la URL base con el src de la imagen
+    # Unimos la url base con el src de la imagen
     # (por si el src es relativo)
-    imagen_url_completa = urljoin(URL, imagen_src)
+    imagen_url_completa = urljoin(url, imagen_src)
 
     # Mostramos el resultado
-    print(f"La URL de la primera imagen es: {imagen_url_completa}")
+    print(f"La url de la primera imagen es: {imagen_url_completa}")
 
 
     # ==============================

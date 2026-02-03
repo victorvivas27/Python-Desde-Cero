@@ -54,10 +54,10 @@ html = response.text
 #
 # (.*?) captura cualquier contenido entre las etiquetas
 # de forma no codiciosa (lazy)
-PRECIO_PATRON = r'<span class="nowrap">(.*?)</span>'
+precio_patron = r'<span class="nowrap">(.*?)</span>'
 
 # Buscamos la primera coincidencia en el HTML
-match = re.search(PRECIO_PATRON, html)
+match = re.search(precio_patron, html)
 
 # Verificamos si se encontró algo
 if match:
