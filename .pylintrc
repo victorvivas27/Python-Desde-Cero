@@ -1,0 +1,4 @@
+[FORMAT]
+#variable-naming-style=snake_case
+#argument-naming-style=snake_case
+const-naming-style=snake_case
