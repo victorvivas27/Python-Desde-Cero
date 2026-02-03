@@ -7,7 +7,7 @@ os.system('clear')  # En Windows suele usarse 'cls'
 
 
 # ==========================================================
-# EJERCICIO: ENCONTRAR DOS NÚMEROS QUE SUMEN UN OBJETIVO
+# EJERCICIO: ENCONTRAR DOS NÚMEROS QUE SUMEN UN objetivo
 # ==========================================================
 # Dado:
 # - Una lista de números enteros
@@ -96,12 +96,12 @@ def find_first_sum(nums, goal):
 # PRUEBA DE LA FUNCIÓN
 # ==========================================================
 nums_goals_01 = [4, 5, 6, 2]
-GOAL = 8
+goal_2 = 8
 
-print(find_first_sum(nums=nums_goals_01, goal=GOAL))
+print(find_first_sum(nums=nums_goals_01, goal=goal_2))
 
 # ==========================================================
-# EJERCICIO: ENCONTRAR DOS NÚMEROS QUE SUMEN UN OBJETIVO
+# EJERCICIO: ENCONTRAR DOS NÚMEROS QUE SUMEN UN objetivo
 # (SOLUCIÓN OPTIMIZADA CON DICCIONARIO)
 # ==========================================================
 # Esta versión utiliza un diccionario para reducir
@@ -112,7 +112,7 @@ print(find_first_sum(nums=nums_goals_01, goal=GOAL))
 # ==========================================================
 
 
-def find_first_sum_dict(nums_goals, goal):
+def find_first_sum_dict(nums_goals, goal_1):
     """
     Encuentra los índices del PRIMER par de números cuya
     suma sea igual al valor objetivo (goal), usando
@@ -150,7 +150,7 @@ def find_first_sum_dict(nums_goals, goal):
 
         # Calculamos el complemento necesario
         # para llegar al objetivo
-        complement = goal - value
+        complement = goal_1 - value
 
         # ----------------------------------------------
         # ¿El complemento ya fue visto?
@@ -172,6 +172,6 @@ def find_first_sum_dict(nums_goals, goal):
 # PRUEBA DE LA FUNCIÓN
 # ==========================================================
 numeros = [4, 5, 6, 2, 8, 3, 5, 7, 1]
-OBJETIVO = 8
+objetivo = 8
 
-print(find_first_sum_dict(nums_goals=numeros, goal=OBJETIVO))
+print(find_first_sum_dict(nums_goals=numeros, goal_1=objetivo))

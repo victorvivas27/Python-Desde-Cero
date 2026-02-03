@@ -127,5 +127,5 @@ def battle(lista_a, lista_b):
 
 lista_a_01 = [4, 4, 4, 5]
 lista_b_02 = [2, 8, 2, 3]
-WINNER = battle(lista_a=lista_a_01, lista_b=lista_b_02)
-print(WINNER)
+ganador = battle(lista_a=lista_a_01, lista_b=lista_b_02)
+print(ganador)
