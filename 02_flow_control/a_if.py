@@ -43,18 +43,18 @@ else:
 # elif permite evaluar varias condiciones en orden.
 # Python ejecuta SOLO el primer bloque verdadero.
 
-NOTA = 7
+nota = 7
 
 # Operadores lógicos:
 # and → ambas condiciones deben cumplirse
 # or  → se cumple al menos una condición
 # not → invierte el resultado de la condición
 
-if NOTA >= 9:
+if nota >= 9:
     print("Sobresaliente")
-elif NOTA >= 7:
+elif nota >= 7:
     print("Notable")
-elif NOTA >= 5:
+elif nota >= 5:
     print("Aprobado")
 else:
     print("No estás calificado")
@@ -65,10 +65,10 @@ else:
 # ----------------------------------------------------------
 print("Condiciones múltiples con operadores lógicos\n")
 
-EDAD = 25
-TIENE_LICENCIA = True
+edad = 25
+tiene_licencia = True
 
-if EDAD >= 18 and TIENE_LICENCIA:
+if edad >= 18 and tiene_licencia:
     print("Puedes conducir un vehículo 🚘")
 else:
     print("No puedes conducir un vehículo 🚫")
@@ -84,26 +84,26 @@ else:
 # >=  Mayor o igual que
 # <=  Menor o igual que
 
-A = 10
-B = 20
+a = 10
+b = 20
 
-if A < B:
-    print(f"{A} es menor que {B}")
+if a < b:
+    print(f"{a} es menor que {b}")
 
-if A != B:
-    print(f"{A} es diferente de {B}")
+if a != b:
+    print(f"{a} es diferente de {b}")
 
-if A <= B:
-    print(f"{A} es menor o igual que {B}")
+if a <= b:
+    print(f"{a} es menor o igual que {b}")
 
-if A == 10:
-    print(f"{A} es igual A 10")
+if a == 10:
+    print(f"{a} es igual a 10")
 
-if B >= 15:
-    print(f"{B} es mayor o igual que 15")
+if b >= 15:
+    print(f"{b} es mayor o igual que 15")
 
-if B > A:
-    print(f"{B} es mayor que {A}")
+if b > a:
+    print(f"{b} es mayor que {a}")
 
 
 # ----------------------------------------------------------
@@ -153,8 +153,8 @@ print('manzana' == 'pera')      # False
 # ----------------------------------------------------------
 # EJEMPLO BÁSICO DE TERNARIA
 # ----------------------------------------------------------
-RESULTADO = "Iguales" if 'hola' == 'hola' else "Diferentes"
-print("Las cadenas son:", RESULTADO)
+resultado = "Iguales" if 'hola' == 'hola' else "Diferentes"
+print("Las cadenas son:", resultado)
 
 
 # ----------------------------------------------------------
@@ -173,8 +173,8 @@ print('Hola' == 'hola')  # False
 # de escribir este bloque:
 
 if 'hola' == 'hola':
-    RESULTADO = "Iguales"
+    resultado = "Iguales"
 else:
-    RESULTADO = "Diferentes"
+    resultado = "Diferentes"
 
-print("Las cadenas son:", RESULTADO)
+print("Las cadenas son:", resultado)
