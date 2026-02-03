@@ -77,18 +77,18 @@ soup = BeautifulSoup(response.text, 'html.parser')
 # COLORES ANSI PARA TERMINAL
 # ==============================
 # Se usan para mejorar la legibilidad de la salida
-RESET = "\x1b[0m"               # Resetea estilos
-INFO = "\x1b[46m\x1b[30m"      # Fondo cian + texto negro
-OK = "\x1b[32m"              # Verde
-WARN = "\x1b[33m"              # Amarillo
-ERROR = "\x1b[31m"              # Rojo
-TITLE = "\x1b[1;34m"            # Azul + negrita
+reset = "\x1b[0m"               # Resetea estilos
+info = "\x1b[46m\x1b[30m"      # Fondo cian + texto negro
+ok = "\x1b[32m"              # Verde
+warn = "\x1b[33m"              # Amarillo
+error = "\x1b[31m"              # Rojo
+title = "\x1b[1;34m"            # Azul + negrita
 
 
 # ==============================
 # MENSAJE PRINCIPAL
 # ==============================
-print(f"{INFO} Revisando la URL: {url} {RESET}\n")
+print(f"{info} Revisando la URL: {url} {reset}\n")
 
 
 # ==============================
@@ -98,7 +98,7 @@ print(f"{INFO} Revisando la URL: {url} {RESET}\n")
 titulo_pagina = soup.title.string if soup.title else None
 
 if titulo_pagina:
-    print(f"{TITLE}📄 Título de la página:{RESET} {titulo_pagina}\n")
+    print(f"{title}📄 Título de la página:{reset} {titulo_pagina}\n")
 
     longitud = len(titulo_pagina)
 
@@ -107,13 +107,13 @@ if titulo_pagina:
     # - Entre 30 y 70 → correcto
     # - Más de 70 → demasiado largo
     if 30 <= longitud <= 70:
-        print(f"{OK}✅ El título es ADECUADO ({longitud} caracteres){RESET}\n")
+        print(f"{ok}✅ El título es ADECUADO ({longitud} caracteres){reset}\n")
     elif longitud > 70:
-        print(f"{ERROR}❌ El título es DEMASIADO LARGO ({longitud} caracteres){RESET}\n")
+        print(f"{error}❌ El título es DEMASIADO LARGO ({longitud} caracteres){reset}\n")
     else:
-        print(f"{WARN}⚠️ El título es DEMASIADO CORTO ({longitud} caracteres){RESET}\n")
+        print(f"{warn}⚠️ El título es DEMASIADO CORTO ({longitud} caracteres){reset}\n")
 else:
-    print(f"{ERROR}❌ La página no tiene título (<title>){RESET}\n")
+    print(f"{error}❌ La página no tiene título (<title>){reset}\n")
 
 
 # ==============================
@@ -124,17 +124,17 @@ titulos_h1 = [titulo.text.strip() for titulo in soup.find_all('h1')]
 
 if not titulos_h1:
     # No hay ningún h1
-    print(f"{ERROR}❌ La página no tiene títulos h1 (<h1>){RESET}\n")
+    print(f"{error}❌ La página no tiene títulos h1 (<h1>){reset}\n")
 
 elif len(titulos_h1) > 1:
     # Hay más de un h1 (mala práctica SEO)
-    print(f"{WARN}⚠️  La página tiene {len(titulos_h1)} títulos h1{RESET}\n")
+    print(f"{warn}⚠️  La página tiene {len(titulos_h1)} títulos h1{reset}\n")
     for titulo in titulos_h1:
-        print(f"{TITLE}• {titulo}{RESET}")
+        print(f"{title}• {titulo}{reset}")
 
 else:
     # Exactamente un h1 (correcto)
-    print(f"{OK}✅ La página tiene un solo título h1 (<h1>){RESET}\n")
+    print(f"{ok}✅ La página tiene un solo título h1 (<h1>){reset}\n")
 
 
 # Uso --> navega al archivo cd nombre_archivo.py
