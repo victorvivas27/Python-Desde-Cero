@@ -18,16 +18,16 @@ sino que devuelven una nueva cadena con el resultado.
 # MÉTODO .upper()
 # ----------------------------------------------------------
 # Convierte todos los caracteres de una cadena a mayúsculas
-TEXTO = "hola mundo"
-print(TEXTO.upper())  # HOLA MUNDO
+texto = "hola mundo"
+print(texto.upper())  # HOLA MUNDO
 
 
 # ----------------------------------------------------------
 # MÉTODO .lower()
 # ----------------------------------------------------------
 # Convierte todos los caracteres de una cadena a minúsculas
-TEXTO = "HOLA MUNDO"
-print(TEXTO.lower())  # hola mundo
+texto = "HOLA MUNDO"
+print(texto.lower())  # hola mundo
 
 
 # ----------------------------------------------------------
@@ -35,32 +35,32 @@ print(TEXTO.lower())  # hola mundo
 # ----------------------------------------------------------
 # Convierte la primera letra de la cadena a mayúscula
 # y el resto a minúsculas
-TEXTO = "hola mundo"
-print(TEXTO.capitalize())  # Hola mundo
+texto = "hola mundo"
+print(texto.capitalize())  # Hola mundo
 
 
 # ----------------------------------------------------------
 # MÉTODO .title()
 # ----------------------------------------------------------
 # Convierte la primera letra de cada palabra a mayúscula
-TEXTO = "hola mundo"
-print(TEXTO.title())  # Hola Mundo
+texto = "hola mundo"
+print(texto.title())  # Hola Mundo
 
 
 # ----------------------------------------------------------
 # MÉTODO .swapcase()
 # ----------------------------------------------------------
 # Convierte mayúsculas en minúsculas y minúsculas en mayúsculas
-TEXTO = "Hola Mundo"
-print(TEXTO.swapcase())  # hOLA mUNDO
+texto = "Hola Mundo"
+print(texto.swapcase())  # hOLA mUNDO
 
 
 # ----------------------------------------------------------
 # MÉTODO .count()
 # ----------------------------------------------------------
 # Cuenta cuántas veces aparece una subcadena dentro de la cadena
-TEXTO = "hola mundo hola"
-print(TEXTO.count("hola"))  # 2
+texto = "hola mundo hola"
+print(texto.count("hola"))  # 2
 
 
 # ----------------------------------------------------------
@@ -68,17 +68,17 @@ print(TEXTO.count("hola"))  # 2
 # ----------------------------------------------------------
 # Busca la primera ocurrencia de una subcadena
 # Devuelve el índice donde comienza o -1 si no se encuentra
-TEXTO = "hola mundo"
-print(TEXTO.find("hola"))  # 0
-print(TEXTO.find("python"))  # -1
+texto = "hola mundo"
+print(texto.find("hola"))  # 0
+print(texto.find("python"))  # -1
 
 
 # ----------------------------------------------------------
 # MÉTODO .replace()
 # ----------------------------------------------------------
 # Reemplaza una subcadena por otra
-TEXTO = "hola mundo"
-print(TEXTO.replace("hola", "adios"))  # adios mundo
+texto = "hola mundo"
+print(texto.replace("hola", "adios"))  # adios mundo
 
 
 # ----------------------------------------------------------
@@ -86,17 +86,17 @@ print(TEXTO.replace("hola", "adios"))  # adios mundo
 # ----------------------------------------------------------
 # Divide una cadena en una lista usando un separador
 # Por defecto, separa por espacios
-TEXTO = "hola mundo"
-print(TEXTO.split())  # ['hola', 'mundo']
+texto = "hola mundo"
+print(texto.split())  # ['hola', 'mundo']
 
 
 # ----------------------------------------------------------
 # OPERADOR in
 # ----------------------------------------------------------
 # Verifica si una subcadena se encuentra dentro de la cadena
-TEXTO = "hola mundo"
-print("hola" in TEXTO)  # True
-print("python" in TEXTO)  # False
+texto = "hola mundo"
+print("hola" in texto)  # True
+print("python" in texto)  # False
 
 # A diferencia de find():
 # - in devuelve True o False
@@ -115,26 +115,26 @@ print(" ".join(PALABRAS))  # hola mundo join
 # MÉTODO .strip()
 # ----------------------------------------------------------
 # Elimina espacios en blanco al inicio y al final de la cadena
-TEXTO = "   hola mundo   "
-print(TEXTO.strip())  # hola mundo
+texto = "   hola mundo   "
+print(texto.strip())  # hola mundo
 
 
 # ----------------------------------------------------------
 # MÉTODO .startswith()
 # ----------------------------------------------------------
 # Verifica si la cadena comienza con una subcadena
-TEXTO = "hola mundo"
-print(TEXTO.startswith("hola"))  # True
-print(TEXTO.startswith("mundo"))  # False
+texto = "hola mundo"
+print(texto.startswith("hola"))  # True
+print(texto.startswith("mundo"))  # False
 
 
 # ----------------------------------------------------------
 # MÉTODO .endswith()
 # ----------------------------------------------------------
 # Verifica si la cadena termina con una subcadena
-TEXTO = "hola mundo"
-print(TEXTO.endswith("mundo"))  # True
-print(TEXTO.endswith("hola"))  # False
+texto = "hola mundo"
+print(texto.endswith("mundo"))  # True
+print(texto.endswith("hola"))  # False
 
 
 # ==========================================================
@@ -143,25 +143,25 @@ print(TEXTO.endswith("hola"))  # False
 # Los métodos de string pueden encadenarse porque cada uno
 # devuelve una nueva cadena.
 
-TEXTO = "   hola mundo   "
+texto = "   hola mundo   "
 
 # Ejemplo 1
-print(TEXTO.strip().capitalize())  # Hola mundo
+print(texto.strip().capitalize())  # Hola mundo
 
 # Ejemplo 2
-print(TEXTO.strip().capitalize().upper())  # HOLA MUNDO
+print(texto.strip().capitalize().upper())  # HOLA MUNDO
 
 # Ejemplo 3
-print(TEXTO.strip().capitalize().upper().replace("H", "X"))  # XOLA MUNDO
+print(texto.strip().capitalize().upper().replace("H", "X"))  # XOLA MUNDO
 
 # Ejemplo 4
-print(TEXTO.strip().capitalize().upper().replace("H", "X").split())
+print(texto.strip().capitalize().upper().replace("H", "X").split())
 # ['XOLA', 'MUNDO']
 
 # Ejemplo 5
-print(TEXTO.strip().capitalize().upper().replace("H", "X").split()[0])
+print(texto.strip().capitalize().upper().replace("H", "X").split()[0])
 # XOLA
 
 # Ejemplo 6
-print(TEXTO.strip().capitalize().upper().replace("H", "X").split()[0][0])
+print(texto.strip().capitalize().upper().replace("H", "X").split()[0][0])
 # X

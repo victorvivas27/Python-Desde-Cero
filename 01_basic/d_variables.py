@@ -17,10 +17,10 @@
 # Las variables se crean asignando un valor a un nombre
 # usando el operador de asignación '='
 
-A = 10                 # int
-B = 3.14               # float
-C = "Hola, mundo!"     # str
-D = True               # bool
+a = 10                 # int
+b = 3.14               # float
+c = "Hola, mundo!"     # str
+d = True               # bool
 
 
 # ----------------------------------------------------------
@@ -32,9 +32,9 @@ D = True               # bool
 # - No pueden ser palabras reservadas de Python
 
 # Ejemplos válidos:
-MI_VARIABLE = 5
-_VARIABLE = "Texto"
-VARIABLE = 3.14
+mi_variable = 5
+_variable = "Texto"
+variable = 3.14
 
 # Ejemplos inválidos (NO ejecutar):
 # 5variable = 5      # No puede comenzar con número
@@ -48,12 +48,11 @@ VARIABLE = 3.14
 # Python es de tipado dinámico:
 # No es necesario declarar el tipo de dato explícitamente
 
-X = 10
-print(type(X))        # <class 'int'>
+x = 10
+print(type(x))        # <class 'int'>
 
-Y = 3.14              # float
-Z = "Hola"            # str
-W = True              # bool
+y = 3.14              # floatzZ = "Hola"            # str
+w = True              # bool
 
 
 # ----------------------------------------------------------
@@ -61,8 +60,8 @@ W = True              # bool
 # ----------------------------------------------------------
 # Una variable puede cambiar de tipo durante la ejecución
 
-X = "Ahora soy una cadena"
-print(type(X))        # <class 'str'>
+x = "Ahora soy una cadena"
+print(type(x))        # <class 'str'>
 
 
 # ----------------------------------------------------------
@@ -87,9 +86,9 @@ print(type(X))        # <class 'str'>
 # ----------------------------------------------------------
 # Ejemplo básico
 # ----------------------------------------------------------
-NOMBRE = "Ana"
-EDAD = 25
-print(f"Me llamo {NOMBRE} y tengo {EDAD} años.")
+nombre = "Ana"
+edad = 25
+print(f"Me llamo {nombre} y tengo {edad} años.")
 
 # ----------------------------------------------------------
 # Asignación múltiple de variables
@@ -108,8 +107,8 @@ print(f"Me llamo {mi_nombre} y tengo {mi_edad} años.")
 # para el programador, el editor o herramientas de análisis
 # Python NO obliga a respetar el tipo indicado
 
-IS_USER_LOGGED_IN: bool = False
-print(f"User is logged in: {IS_USER_LOGGED_IN}")
+is_user_logged_in: bool = False
+print(f"User is logged in: {is_user_logged_in}")
 
 # ----------------------------------------------------------
 # Reasignación de la variable con otro tipo de dato
@@ -118,8 +117,8 @@ print(f"User is logged in: {IS_USER_LOGGED_IN}")
 # Python permite cambiar el tipo de dato en tiempo de ejecución
 # Esto demuestra que Python es un lenguaje de tipado dinámico
 
-IS_USER_LOGGED_IN = 43
-print(f"User is logged in: {IS_USER_LOGGED_IN}")
+is_user_logged_in = 43
+print(f"User is logged in: {is_user_logged_in}")
 
 # ----------------------------------------------------------
 # Nota importante
@@ -133,7 +132,7 @@ print(f"User is logged in: {IS_USER_LOGGED_IN}")
 # CONVENCIÓN DE NOMBRES DE VARIABLES
 # ----------------------------------------------------------
 # snake_case → Convención recomendada en Python
-MI_VARIABLE_EJEMPLO = 10
+mi_variable_ejemplo = 10
 
 # camelCase → Usado en otros lenguajes (NO recomendado en Python)
 # miVariableEjemplo = 10
