@@ -40,23 +40,23 @@ if system("clear") != 0:
 # 1) EL PUNTO . (comodín)
 # ----------------------------------------------------------
 # El punto coincide con "cualquier carácter" EXCEPTO salto de línea (\n)
-TEXTO = "Hola mundo ,H#la soy victor ,HOla que tal"
-PATRON = r"H.la"
+texto = "Hola mundo ,H#la soy victor ,HOla que tal"
+patron = r"H.la"
 
-found = re.findall(PATRON, TEXTO)
+found = re.findall(patron, texto)
 print("\n1) Uso de .")
-print("Patrón:", PATRON)
-print("Texto :", TEXTO)
+print("Patrón:", patron)
+print("Texto :", texto)
 print("Coincidencias:", found if found else "No encontrado")
 
 # Ejemplo con palabras similares: c.sa encuentra "casa", "cosa", "cisa", "cesa"...
-TEXTO = "casa caasa cosa cisa cesa causa"
-PATRON = r"c.sa"
+texto = "casa caasa cosa cisa cesa causa"
+patron = r"c.sa"
 
-found = re.findall(PATRON, TEXTO)
+found = re.findall(patron, texto)
 print("\n1b) Otro ejemplo de .")
-print("Patrón:", PATRON)
-print("Texto :", TEXTO)
+print("Patrón:", patron)
+print("Texto :", texto)
 print("Coincidencias:", found if found else "No encontrado")
 
 
@@ -65,13 +65,13 @@ print("Coincidencias:", found if found else "No encontrado")
 # ----------------------------------------------------------
 # Como . es comodín, para buscar un punto REAL usamos \.
 # La barra invertida "\" "escapa" al metacarácter.
-TEXTO = "www.ejemplo.com www.ejemplo1.com www.ejemplo2.com"
-PATRON = r"\."
+texto = "www.ejemplo.com www.ejemplo1.com www.ejemplo2.com"
+patron = r"\."
 
-found = re.findall(PATRON, TEXTO)
+found = re.findall(patron, texto)
 print("\n2) Punto literal con \\. (escape)")
-print("Patrón:", PATRON)
-print("Texto :", TEXTO)
+print("Patrón:", patron)
+print("Texto :", texto)
 print("Coincidencias:", found if found else "No encontrado")
 
 
@@ -81,13 +81,13 @@ print("Coincidencias:", found if found else "No encontrado")
 # En regex, "\" es carácter de escape.
 # Para buscar una "\" literal, necesitamos "\\"
 # Usamos raw string r"\\", que es lo más cómodo.
-TEXTO = r"C:\Users\Victor\Documents"
-PATRON = r"\\"
+texto = r"C:\Users\Victor\Documents"
+patron = r"\\"
 
-found = re.findall(PATRON, TEXTO)
+found = re.findall(patron, texto)
 print("\n3) Barra invertida literal")
-print("Patrón:", PATRON)
-print("Texto :", TEXTO)
+print("Patrón:", patron)
+print("Texto :", texto)
 print("Coincidencias:", found if found else "No encontrado")
 
 
@@ -95,22 +95,22 @@ print("Coincidencias:", found if found else "No encontrado")
 # 4) \d (dígitos) + cuantificadores
 # ----------------------------------------------------------
 # \d coincide con un dígito (0-9)
-TEXTO = "Mi numero de telefono es 1234567890"
+texto = "Mi numero de telefono es 1234567890"
 
-PATRON = r"\d"
-found = re.findall(PATRON, TEXTO)
+patron = r"\d"
+found = re.findall(patron, texto)
 print("\n4) \\d devuelve dígitos individuales")
 print(found)
 
 # + significa "uno o más" (junta la secuencia completa)
-PATRON = r"\d+"
-found = re.findall(PATRON, TEXTO)
+patron = r"\d+"
+found = re.findall(patron, texto)
 print("\n4b) \\d+ junta secuencias de dígitos")
 print(found)
 
 # {10} significa "exactamente 10 dígitos"
-PATRON = r"\d{10}"
-found = re.findall(PATRON, TEXTO)
+patron = r"\d{10}"
+found = re.findall(patron, texto)
 print("\n4c) \\d{10} busca exactamente 10 dígitos")
 print(found)
 
@@ -122,10 +122,10 @@ print(found)
 # - \+  para el signo + literal
 # - \d{7} exactamente 7 dígitos
 # - espacio literal
-TEXTO = "Mi numero de telefono es +351 7178283"
-PATRON = r"\+351 \d{7}"
+texto = "Mi numero de telefono es +351 7178283"
+patron = r"\+351 \d{7}"
 
-found = re.search(PATRON, TEXTO)
+found = re.search(patron, texto)
 print("\n5) Prefijo +351 y 7 dígitos")
 print("Encontrado:", found.group() if found else "No encontrado")
 
@@ -137,17 +137,17 @@ print("Encontrado:", found.group() if found else "No encontrado")
 # - letras a-z A-Z
 # - números 0-9
 # - guion bajo _
-TEXTO = "variable1 _var2 3var var-4@$%"
-PATRON = r"\w"
+texto = "variable1 _var2 3var var-4@$%"
+patron = r"\w"
 
-found = re.findall(PATRON, TEXTO)
+found = re.findall(patron, texto)
 print("\n6) \\w (caracteres alfanuméricos y _)")
 print(found)
 
 # Si quisieras "palabras completas" (secuencias), podrías usar:
-PATRON = r"\w+"
+patron = r"\w+"
 # -> ['variable1', '_var2', '3var', 'var', '4']
-palabras_completas = re.findall(PATRON, TEXTO)
+palabras_completas = re.findall(patron, texto)
 print("\n6b) \\w+ (palabras completas)")
 print(palabras_completas)
 
@@ -159,10 +159,10 @@ print(palabras_completas)
 # - espacio " "
 # - tabulación "\t"
 # - salto de línea "\n"
-TEXTO = "Hola\tmundo\nEsto es una prueba "
-PATRON = r"\s"
+texto = "Hola\tmundo\nEsto es una prueba "
+patron = r"\s"
 
-found = re.findall(PATRON, TEXTO)
+found = re.findall(patron, texto)
 print("\n7) \\s (espacios, tabs y saltos de línea)")
 print(found)
 
@@ -174,10 +174,10 @@ print(found)
 # obliga a que el patrón ocurra al INICIO.
 #
 # Ejemplo: ^\w significa "el primer carácter es alfanumérico o _"
-TEXTO = "2334_name%%"
-PATRON = r"^\w"
+texto = "2334_name%%"
+patron = r"^\w"
 
-valid = re.search(PATRON, TEXTO)
+valid = re.search(patron, texto)
 print("\n8) ^ inicio de cadena")
 print("Válido" if valid else "No válido")
 
@@ -186,10 +186,10 @@ print("Válido" if valid else "No válido")
 # - empieza con "+"
 # - seguido de 1 a 3 dígitos (código de país)
 # - seguido de un espacio
-TEXTO = "+222 7178283"
-PATRON = r"^\+\d{1,3} "
+texto = "+222 7178283"
+patron = r"^\+\d{1,3} "
 
-valid = re.search(PATRON, TEXTO)
+valid = re.search(patron, texto)
 print("\n8b) Validar comienzo de teléfono")
 print("Teléfono válido" if valid else "Teléfono no válido")
 
@@ -198,14 +198,14 @@ print("Teléfono válido" if valid else "Teléfono no válido")
 # 9) $ (fin de cadena)
 # ----------------------------------------------------------
 # $ es otro ancla: obliga a que el patrón termine al FINAL.
-TEXTO = "2334_name."
-PATRON = r"name$"   # busca que la cadena termine exactamente en "name"
+texto = "2334_name."
+patron = r"name$"   # busca que la cadena termine exactamente en "name"
 
-valid = re.search(PATRON, TEXTO)
+valid = re.search(patron, texto)
 print("\n9) $ fin de cadena")
 print("Válido" if valid else "No válido")
 
-# En este caso dará "No válido" porque el TEXTO termina en "name."
+# En este caso dará "No válido" porque el texto termina en "name."
 # (tiene un punto al final)
 
 
@@ -226,10 +226,10 @@ print("Válido" if valid else "No válido")
 # - termina en un límite de palabra
 #
 # Esto evita capturar dentro de palabras más largas.
-TEXTO = "casa caasa cosa cisa cesa causa casa"
-PATRON = r"\bc.sa\b"
+texto = "casa caasa cosa cisa cesa causa casa"
+patron = r"\bc.sa\b"
 
-found = re.findall(PATRON, TEXTO)
+found = re.findall(patron, texto)
 print("\n10) \\b límites de palabra")
 print(found)
 # Aquí suelen salir: ['casa', 'cosa', 'cisa', 'cesa', 'casa']
@@ -240,10 +240,10 @@ print(found)
 # 11) OR | (alternativas)
 # ----------------------------------------------------------
 # | permite buscar "una cosa u otra"
-TEXTO = "Me gusta el color rojo y tambien el color azul, pero el azul es mejor que el rojo"
-PATRON = r"rojo|azul"
+texto = "Me gusta el color rojo y tambien el color azul, pero el azul es mejor que el rojo"
+patron = r"rojo|azul"
 
-found = re.findall(PATRON, TEXTO)
+found = re.findall(patron, texto)
 print("\n11) OR con |")
 print(found)
 
@@ -251,15 +251,15 @@ print(found)
 # ----------------------------------------------------------
 # 12) OR + metacaracteres (combinaciones)
 # ----------------------------------------------------------
-TEXTO = "pera,manzana,platano,piña,melón,aguacate,guayaba"
+texto = "pera,manzana,platano,piña,melón,aguacate,guayaba"
 
 # Este patrón busca:
 # - "palta" OR "melón" OR "p..a" OR cualquier palabra de 6 letras completa
 # - p..a coincide con: p + (cualquier) + (cualquier) + a  -> ej: "pera", "piña" (según acentos)
 # - \b\w{6}\b: palabra de exactamente 6 caracteres alfanuméricos/_ (ojo con acentos)
-PATRON = r"palta|melón|p..a|\b\w{6}\b"
+patron = r"palta|melón|p..a|\b\w{6}\b"
 
-found = re.findall(PATRON, TEXTO)
+found = re.findall(patron, texto)
 print("\n12) OR combinado")
 print(found)
 

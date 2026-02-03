@@ -1,3 +1,4 @@
+'''Documentacion de expresiones regulares en Python'''
 # ----------------------------------------------------------
 # LIMPIAR LA CONSOLA (OPCIONAL)
 # ----------------------------------------------------------
@@ -30,13 +31,13 @@ if system("clear") != 0:
 # - una vez
 # - o ninguna vez (por eso puede devolver cadenas vacías)
 
-TEXTO = "Holaa"
-PATRON = r"a*"
+texto = "Holaa"
+patron = r"a*"
 
-found = re.findall(PATRON, TEXTO)
+found = re.findall(patron, texto)
 print("\n1) Uso de * (cero o más)")
-print("Patrón:", PATRON)
-print("Texto :", TEXTO)
+print("Patrón:", patron)
+print("Texto :", texto)
 print("Coincidencias:", found)
 
 # Nota:
@@ -50,13 +51,13 @@ print("Coincidencias:", found)
 # + exige que el patrón aparezca AL MENOS UNA VEZ.
 # NO permite coincidencias vacías.
 
-TEXTO = "Holaa a balon a"
-PATRON = r"a+"
+texto = "Holaa a balon a"
+patron = r"a+"
 
-found = re.findall(PATRON, TEXTO)
+found = re.findall(patron, texto)
 print("\n2) Uso de + (uno o más)")
-print("Patrón:", PATRON)
-print("Texto :", TEXTO)
+print("Patrón:", patron)
+print("Texto :", texto)
 print("Coincidencias:", found)
 
 # Aquí:
@@ -70,13 +71,13 @@ print("Coincidencias:", found)
 # ----------------------------------------------------------
 # ? hace que el carácter anterior sea OPCIONAL.
 
-TEXTO = "Holaa a balon ab b"
-PATRON = r"a?b"
+texto = "Holaa a balon ab b"
+patron = r"a?b"
 
-found = re.findall(PATRON, TEXTO)
+found = re.findall(patron, texto)
 print("\n3) Uso de ? (cero o uno)")
-print("Patrón:", PATRON)
-print("Texto :", TEXTO)
+print("Patrón:", patron)
+print("Texto :", texto)
 print("Coincidencias:", found)
 
 # Explicación:
@@ -96,13 +97,13 @@ print("Coincidencias:", found)
 # {n} exige que el patrón aparezca EXACTAMENTE n veces
 # y además de forma CONSECUTIVA.
 
-TEXTO = "Holaaa balon aba aaa a aa"
-PATRON = r"a{3}"
+texto = "Holaaa balon aba aaa a aa"
+patron = r"a{3}"
 
-found = re.findall(PATRON, TEXTO)
+found = re.findall(patron, texto)
 print("\n4) Uso de {n} (exactamente n)")
-print("Patrón:", PATRON)
-print("Texto :", TEXTO)
+print("Patrón:", patron)
+print("Texto :", texto)
 print("Coincidencias:", found)
 
 # Solo coincide con:
@@ -118,13 +119,13 @@ print("Coincidencias:", found)
 # ----------------------------------------------------------
 # {m,n} busca entre m y n repeticiones CONSECUTIVAS.
 
-TEXTO = "Holaaaa balon abaaaa aaa a aa"
-PATRON = r"a{2,3}"
+texto = "Holaaaa balon abaaaa aaa a aa"
+patron = r"a{2,3}"
 
-found = re.findall(PATRON, TEXTO)
+found = re.findall(patron, texto)
 print("\n5) Uso de {m,n} (entre m y n)")
-print("Patrón:", PATRON)
-print("Texto :", TEXTO)
+print("Patrón:", patron)
+print("Texto :", texto)
 print("Coincidencias:", found)
 
 # IMPORTANTE:
@@ -143,13 +144,13 @@ print("Coincidencias:", found)
 # \w   -> letra, número o _
 # {1,6} -> entre 1 y 6 caracteres
 
-TEXTO = "ala casa árbol léon cinco murcielago"
-PATRON = r"\b\w{1,6}\b"
+texto = "ala casa árbol léon cinco murcielago"
+patron = r"\b\w{1,6}\b"
 
-found = re.findall(PATRON, TEXTO)
+found = re.findall(patron, texto)
 print("\n6) Palabras de 1 a 6 caracteres")
-print("Patrón:", PATRON)
-print("Texto :", TEXTO)
+print("Patrón:", patron)
+print("Texto :", texto)
 print("Coincidencias:", found)
 
 # \b evita que se tomen partes de palabras largas
@@ -162,13 +163,13 @@ print("Coincidencias:", found)
 # - mínimo 6
 # - sin límite máximo
 
-TEXTO = "ala casa árbol léon cinco murcielago extraordinario"
-PATRON = r"\b\w{6,}\b"
+texto = "ala casa árbol léon cinco murcielago extraordinario"
+patron = r"\b\w{6,}\b"
 
-found = re.findall(PATRON, TEXTO)
+found = re.findall(patron, texto)
 print("\n7) Palabras de 6 o más caracteres")
-print("Patrón:", PATRON)
-print("Texto :", TEXTO)
+print("Patrón:", patron)
+print("Texto :", texto)
 print("Coincidencias:", found)
 
 # NOTA:

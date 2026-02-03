@@ -45,20 +45,20 @@ if system("clear") != 0:
 # ==========================================================
 # El patrón es una cadena de texto que define
 # lo que queremos buscar
-PATRON = "Hola"
+patron = "Hola"
 
 
 # ==========================================================
-# PASO 3: DEFINIR EL TEXTO DONDE BUSCAR
+# PASO 3: DEFINIR EL texto DONDE BUSCAR
 # ==========================================================
-TEXTO = "Hola, este es un ejemplo de expresión regular. Hola de nuevo."
+texto = "Hola, este es un ejemplo de expresión regular. Hola de nuevo."
 
 
 # ==========================================================
-# PASO 4: BUSCAR EL PATRÓN EN EL TEXTO
+# PASO 4: BUSCAR EL PATRÓN EN EL texto
 # ==========================================================
 # re.search() busca la PRIMERA coincidencia
-result = re.search(PATRON, TEXTO)
+result = re.search(patron, texto)
 
 if result:
     print("Patrón encontrado")
@@ -85,8 +85,8 @@ print(f"Patrón encontrado en la posición: {result.start()} - {result.end()}")
 # ==========================================================
 # re.findall() devuelve una LISTA con todas las coincidencias
 
-TEXTO = "Hola, este es un ejemplo de expresión regular. Hola de nuevo. Hola otra vez."
-all_results = re.findall(PATRON, TEXTO)
+texto = "Hola, este es un ejemplo de expresión regular. Hola de nuevo. Hola otra vez."
+all_results = re.findall(patron, texto)
 
 print(all_results)
 print(len(all_results))  # Cantidad de coincidencias encontradas
@@ -99,7 +99,7 @@ print(len(all_results))  # Cantidad de coincidencias encontradas
 # Es útil cuando queremos información detallada
 # de cada coincidencia
 
-matches = re.finditer(PATRON, TEXTO)
+matches = re.finditer(patron, texto)
 
 for match in matches:
     print(match.group(), match.start(), match.end())
@@ -113,15 +113,15 @@ for match in matches:
 # re.IGNORECASE o re.I:
 # - Ignora mayúsculas y minúsculas
 
-PATRON = "hola"
-TEXTO = "Hola, este es un ejemplo de expresión regular. hola de nuevo. Hola otra vez."
+patron = "hola"
+texto = "Hola, este es un ejemplo de expresión regular. hola de nuevo. Hola otra vez."
 
-all_results = re.findall(PATRON, TEXTO, re.IGNORECASE)
+all_results = re.findall(patron, texto, re.IGNORECASE)
 print(all_results)
 
 
 # ==========================================================
-# REEMPLAZAR TEXTO CON re.sub()
+# REEMPLAZAR texto CON re.sub()
 # ==========================================================
 # re.sub() reemplaza coincidencias del patrón
 #
@@ -132,10 +132,10 @@ print(all_results)
 # - Limita la cantidad de reemplazos
 # - Por defecto reemplaza TODAS las coincidencias
 
-TEXTO = "Hola, este es un ejemplo de expresión regular. Hola de nuevo."
-PATRON = "Hola"
-REMPLAZO = "Adiós"
+texto = "Hola, este es un ejemplo de expresión regular. Hola de nuevo."
+patron = "Hola"
+remplazo = "Adiós"
 
 # Reemplaza SOLO la primera ocurrencia
-new_text = re.sub(PATRON, REMPLAZO, TEXTO, count=1)
+new_text = re.sub(patron, remplazo, texto, count=1)
 print(new_text)
