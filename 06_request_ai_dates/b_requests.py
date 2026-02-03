@@ -23,7 +23,7 @@ if system("clear") != 0:
 # URL BASE DE LA API
 # ----------------------------------------------------------
 # Usamos JSONPlaceholder, una API pública para pruebas
-BASE_URL = "https://jsonplaceholder.typicode.com/posts"
+base_url = "https://jsonplaceholder.typicode.com/posts"
 
 
 # ----------------------------------------------------------
@@ -36,7 +36,7 @@ BASE_URL = "https://jsonplaceholder.typicode.com/posts"
 
 # try:
 #     # Abrimos la URL y hacemos la petición GET
-#     response = urllib.request.urlopen(BASE_URL)
+#     response = urllib.request.urlopen(base_url)
 #
 #     # Leemos la respuesta (viene en bytes)
 #     data = response.read()
@@ -63,7 +63,7 @@ try:
     print("\nHacemos la peticion GET: ")
 
     # Hacemos la solicitud GET
-    response = requests.get(BASE_URL, timeout=10)
+    response = requests.get(base_url, timeout=10)
 
     # Convertimos la respuesta automáticamente a JSON
     data = response.json()
@@ -84,7 +84,7 @@ try:
     print("\nHacemos la peticion POST: ")
 
     response = requests.post(
-        BASE_URL,
+        base_url,
         timeout=10,
         json={
             "title": "foo",     # Título del post
@@ -112,7 +112,7 @@ try:
     print("\nHacemos la peticion PUT: ")
 
     response = requests.put(
-        BASE_URL + "/1",
+        base_url + "/1",
         timeout=10,
         json={
             "title": "Victor",  # Nuevo título
@@ -137,7 +137,7 @@ try:
     print("\nHacemos la peticion PATCH: ")
 
     response = requests.patch(
-        BASE_URL + "/1",
+        base_url + "/1",
         timeout=10,
         json={
             "title": "Maria",   # Campo a modificar

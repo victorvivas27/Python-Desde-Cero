@@ -103,8 +103,8 @@ if __name__ == "__main__":
         model="gpt-4.1-mini"
     )
 
-    PROMPT = "Escribe un breve poema sobre la programación en Python"
-    respuesta = open_ia.generate_response(PROMPT)
+    texto_ingreso = "Escribe un breve poema sobre la programación en Python"
+    respuesta = open_ia.generate_response(texto_ingreso)
 
     print("\n--- RESPUESTA DEL MODELO ---\n")
     print(respuesta)

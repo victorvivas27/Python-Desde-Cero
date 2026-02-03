@@ -125,8 +125,8 @@ print(f"7) Mi edad es: {edad}")
 # 8) PARSEAR (CONVERTIR) STRING A FECHA (strptime)  ✅ MUY IMPORTANTE
 # ----------------------------------------------------------
 # strptime convierte string -> datetime
-TEXTO_FECHA = "27/11/1978 15:30:00"
-fecha_parseada = datetime.strptime(TEXTO_FECHA, "%d/%m/%Y %H:%M:%S")
+texto_fecha = "27/11/1978 15:30:00"
+fecha_parseada = datetime.strptime(texto_fecha, "%d/%m/%Y %H:%M:%S")
 print(f"8) Fecha parseada desde texto: {fecha_parseada}")
 
 # En muchos sistemas 'es_ES.UTF-8' puede NO estar instalado.
@@ -140,17 +140,17 @@ locales_posibles = [
     "es_AR"          # alternativa
 ]
 
-LOCAL_COFIGURABLE = False
+local_configurable = False
 
 for loc in locales_posibles:
     try:
         locale.setlocale(locale.LC_TIME, loc)
-        LOCAL_COFIGURABLE = True
+        local_configurable = True
         break
     except locale.Error:
         pass
 
-if LOCAL_COFIGURABLE:
+if local_configurable:
     # %A = nombre del día (lunes, martes...)
     # %B = nombre del mes (enero, febrero...)
     fecha_formateada_es = fecha_actual.strftime("%A, %d de %B de %Y")
