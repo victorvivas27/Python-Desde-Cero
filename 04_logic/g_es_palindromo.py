@@ -24,5 +24,5 @@ def es_palindromo(texto):
     return texto.lower() == texto_al_reves.lower()
 
 
-print(es_palindromo("Amo la paloma"))
+print(es_palindromo("amo la paloma"))
 print(es_palindromo("Hola mundo python"))
