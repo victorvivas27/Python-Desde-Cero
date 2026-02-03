@@ -33,12 +33,12 @@ for fruta in frutas:
 
 
 # ----------------------------------------------------------
-# ITERAR UNA CADENA (STRING)
+# ITERAR UNA cadena (STRING)
 # ----------------------------------------------------------
-CADENA = "Python"
+cadena = "Python"
 
 # Cada carácter del string se recorre uno por uno
-for letra in CADENA:
+for letra in cadena:
     print(letra)
 
 

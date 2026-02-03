@@ -89,8 +89,8 @@ def sumar(a, b):
     return suma
 
 
-RESULTADO = sumar(23, 34)
-print("La suma es:", RESULTADO)
+resultado = sumar(23, 34)
+print("La suma es:", resultado)
 
 # Ver documentación de una función:
 # print(saludar.__doc__)

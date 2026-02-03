@@ -34,10 +34,10 @@ os.system('clear')  # En Windows suele usarse 'cls'
 # ==========================================================
 # EJEMPLO BÁSICO DE while
 # ==========================================================
-CONTADOR = 0
-while CONTADOR < 10:
-    print("Contador sin break:", CONTADOR)
-    CONTADOR += 1   # MUY IMPORTANTE
+contador = 0
+while contador < 10:
+    print("Contador sin break:", contador)
+    contador += 1   # MUY IMPORTANTE
     # Sin esto, el bucle sería infinito
 
 
@@ -47,14 +47,14 @@ while CONTADOR < 10:
 # break finaliza el bucle inmediatamente,
 # sin importar si la condición sigue siendo True.
 
-CONTADOR = 0
+contador = 0
 
 while True:  # Bucle infinito controlado con break
-    print("Contador con break:", CONTADOR)
-    CONTADOR += 1
+    print("Contador con break:", contador)
+    contador += 1
 
-    if CONTADOR == 5:
-        break   # Sale del bucle cuando CONTADOR vale 5
+    if contador == 5:
+        break   # Sale del bucle cuando contador vale 5
 
 
 # ==========================================================
@@ -65,17 +65,17 @@ while True:  # Bucle infinito controlado con break
 # - Salta a la SIGUIENTE iteración
 # - El código debajo de continue NO se ejecuta
 
-CONTADOR = 0
+contador = 0
 
-while CONTADOR < 10:
-    CONTADOR += 1
+while contador < 10:
+    contador += 1
 
     # Si el número es par, salta a la siguiente vuelta
-    if CONTADOR % 2 == 0:
+    if contador % 2 == 0:
         continue
 
     # Este print solo se ejecuta para números impares
-    print("Contador con continue:", CONTADOR)
+    print("Contador con continue:", contador)
 
 
 # ----------------------------------------------------------
@@ -97,11 +97,11 @@ while CONTADOR < 10:
 # Si hay un break → el else NO se ejecuta
 # ==========================================================
 
-CONTENEDOR = 0
+contenedor = 0
 
-while CONTENEDOR < 10:
-    print("Contador con else:", CONTENEDOR)
-    CONTENEDOR += 1
+while contenedor < 10:
+    print("Contador con else:", contenedor)
+    contenedor += 1
 
     break   # Al usar break, el else NO se ejecuta
 else:
@@ -111,11 +111,11 @@ else:
 # ----------------------------------------------------------
 # EJEMPLO SIN break (else SÍ se ejecuta)
 # ----------------------------------------------------------
-CONTADOR = 0
+contador = 0
 
-# while CONTADOR < 3:
-#     print("Contador:", CONTADOR)
-#     CONTADOR += 1
+# while contador < 3:
+#     print("Contador:", contador)
+#     contador += 1
 # else :
 #     print("Bucle terminado sin interrupciones")
 
@@ -125,15 +125,15 @@ CONTADOR = 0
 # ==========================================================
 # Pedir un número hasta que sea positivo
 
-NUMERO = -1
+numero = -1
 
-while NUMERO < 0:
-    NUMERO = int(input("Ingresa un número: "))
+while numero < 0:
+    numero = int(input("Ingresa un número: "))
 
-    if NUMERO < 0:
+    if numero < 0:
         print("El número debe ser positivo")
 
-print(f"Gracias, el número ingresado es {NUMERO}")
+print(f"Gracias, el número ingresado es {numero}")
 
 
 # ==========================================================
@@ -145,17 +145,17 @@ print(f"Gracias, el número ingresado es {NUMERO}")
 # Para evitar que el programa se rompa,
 # usamos try / except.
 
-NUMERO = -1
+numero = -1
 
-while NUMERO < 0:
+while numero < 0:
     try:
-        NUMERO = int(input("Ingresa un número: "))
+        numero = int(input("Ingresa un número: "))
 
-        if NUMERO < 0:
+        if numero < 0:
             print("El número debe ser positivo")
 
     except ValueError:
         # Se ejecuta si ocurre un error (ej: letras)
         print("Entrada inválida. Debes ingresar un número.")
 
-print(f"Gracias, el número ingresado es {NUMERO}")
+print(f"Gracias, el número ingresado es {numero}")
